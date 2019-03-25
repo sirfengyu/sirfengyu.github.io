@@ -26,3 +26,7 @@ git push -f https://github.com/sirfengyu/sirfengyu.github.io.git master
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 
 cd -
+
+git commit -a -m "deploy"
+
+git push
