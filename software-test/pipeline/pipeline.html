@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pipeline | fy &#39; 博客</title>
+    <meta name="description" content="种一棵树最好的时间是十年前，其次是现在">
+    <link rel="icon" href="/logo.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.382af5d5.css" as="style"><link rel="preload" href="/assets/js/app.c23fa696.js" as="script"><link rel="preload" href="/assets/js/5.caf11e4f.js" as="script"><link rel="prefetch" href="/assets/js/10.3de7248a.js"><link rel="prefetch" href="/assets/js/11.4904a425.js"><link rel="prefetch" href="/assets/js/12.96030d95.js"><link rel="prefetch" href="/assets/js/13.0ba21036.js"><link rel="prefetch" href="/assets/js/14.3f635099.js"><link rel="prefetch" href="/assets/js/15.2a5191ff.js"><link rel="prefetch" href="/assets/js/16.c353618d.js"><link rel="prefetch" href="/assets/js/17.e63ce630.js"><link rel="prefetch" href="/assets/js/18.0027b6bc.js"><link rel="prefetch" href="/assets/js/19.2c1dc938.js"><link rel="prefetch" href="/assets/js/2.5d8c5d2c.js"><link rel="prefetch" href="/assets/js/20.ebaad522.js"><link rel="prefetch" href="/assets/js/21.7db1b099.js"><link rel="prefetch" href="/assets/js/22.db11cc7e.js"><link rel="prefetch" href="/assets/js/23.182a7787.js"><link rel="prefetch" href="/assets/js/24.ebf64856.js"><link rel="prefetch" href="/assets/js/25.0608e322.js"><link rel="prefetch" href="/assets/js/26.613b6083.js"><link rel="prefetch" href="/assets/js/27.1711dac1.js"><link rel="prefetch" href="/assets/js/28.958ebc03.js"><link rel="prefetch" href="/assets/js/29.eb04bb5b.js"><link rel="prefetch" href="/assets/js/3.8584f6e8.js"><link rel="prefetch" href="/assets/js/30.ebdc18f7.js"><link rel="prefetch" href="/assets/js/31.987f0ed9.js"><link rel="prefetch" href="/assets/js/32.2ae4c6f3.js"><link rel="prefetch" href="/assets/js/33.ec3a8309.js"><link rel="prefetch" href="/assets/js/4.48918aba.js"><link rel="prefetch" href="/assets/js/6.50872026.js"><link rel="prefetch" href="/assets/js/7.a6f1aba8.js"><link rel="prefetch" href="/assets/js/8.b724a65b.js"><link rel="prefetch" href="/assets/js/9.8f8597d1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.382af5d5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">fy ' 博客</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/fullstack/" class="nav-link">全栈开发</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">软件测试</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/software-test/ui-autotest/" class="nav-link">UI自动化</a></li><li class="dropdown-item"><!----> <a href="/software-test/jmeter/" class="nav-link">Jmeter</a></li><li class="dropdown-item"><!----> <a href="/software-test/pipeline/pipeline.html" class="nav-link router-link-exact-active router-link-active">Pipeline</a></li></ul></div></div><div class="nav-item"><a href="/performance-tuning/" class="nav-link">系统调优</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">最佳实践</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/best-practice/vuepress.html" class="nav-link">vuepress搭建博客</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习导航</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/official-tutorial/vue.html" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/react.html" class="nav-link">React</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/django.html" class="nav-link">Django</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/github-pages.html" class="nav-link">Github Pages</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/jmeter.html" class="nav-link">jmeter</a></li></ul></div></div> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/fullstack/" class="nav-link">全栈开发</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">软件测试</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/software-test/ui-autotest/" class="nav-link">UI自动化</a></li><li class="dropdown-item"><!----> <a href="/software-test/jmeter/" class="nav-link">Jmeter</a></li><li class="dropdown-item"><!----> <a href="/software-test/pipeline/pipeline.html" class="nav-link router-link-exact-active router-link-active">Pipeline</a></li></ul></div></div><div class="nav-item"><a href="/performance-tuning/" class="nav-link">系统调优</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">最佳实践</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/best-practice/vuepress.html" class="nav-link">vuepress搭建博客</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习导航</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/official-tutorial/vue.html" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/react.html" class="nav-link">React</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/django.html" class="nav-link">Django</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/github-pages.html" class="nav-link">Github Pages</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/jmeter.html" class="nav-link">jmeter</a></li></ul></div></div> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading open"><span>Pipeline</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/software-test/pipeline/" class="sidebar-link">Pipline</a></li><li><a href="/software-test/pipeline/pipeline.html" class="active sidebar-link">Pipeline</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="pipeline"><a href="#pipeline" aria-hidden="true" class="header-anchor">#</a> Pipeline</h1> <p>The Continuous Delivery Pipeline 持续交付流水线</p> <p>DSL Domain-specific_language 某些特定领域设计的专用语言，比如sql</p> <p>Pipeline as Code 流程即代码</p> <p>Jenkins Pipeline is a suite of plugins which supports implementing and integrating continuous delivery pipelines into Jenkins. Pipeline provides an extensible set of tools for modeling simple-to-complex delivery pipelines &quot;as code&quot; via the Pipeline DSL.</p> <p>翻译：</p> <blockquote><p>Jenkins Pipeline 是一系列插件，它支持在jenkins中实现和集成持续交付流水线。Pipeline通过Pipeline DSL为从简单到复杂的交付场景，以代码化的方式为交付管道提供了一套可扩展工具。</p></blockquote> <p>Pipeline就是一套运行于Jenkins上的工作流框架，将原本独立运行于单个或者多个节点的任务连接起来，实现单个任务难以完成的复杂发布流程。Pipeline的实现方式是一套Groovy DSL，任何发布流程都可以表述为一段Groovy脚本，并且Jenkins支持从代码库直接读取脚本，从而实现了Pipeline as Code的理念。</p> <h1 id="pipeline-key-concepts-基本概念"><a href="#pipeline-key-concepts-基本概念" aria-hidden="true" class="header-anchor">#</a> Pipeline key concepts--基本概念</h1> <p>交付流水线：</p> <p><img src="/assets/img/20190418101225259_185830481.0df3ce15.png" alt="Jenkins Pipeline">
+docker运行jenkins：</p> <div class="language-shell line-numbers-mode"><pre class="language-text"><code>docker run \
+--name blueocean \
+-u root \
+--rm \
+-d \
+-p 8080:8080 \
+-p 50000:50000 \
+-v ~/.jenkinshome:/var/jenkins_home \
+-v /var/run/docker.sock:/var/run/docker.sock \
+jenkinsci/blueocean
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><ul><li>webUI方式运行Scripted Pipeline</li></ul> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code>Jenkinsfile <span class="token punctuation">(</span>Scripted Pipeline<span class="token punctuation">)</span>
+node <span class="token punctuation">{</span>  
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        <span class="token comment">// 编译</span>
+        steps<span class="token operator">.</span>echo <span class="token string gstring">&quot;Scripted Pipeline:Build&quot;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        <span class="token comment">// 测试 </span>
+        steps<span class="token operator">.</span>echo <span class="token string gstring">&quot;Scripted Pipeline:Test&quot;</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Deploy'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        <span class="token comment">// 部署 </span>
+        steps<span class="token operator">.</span>echo <span class="token string gstring">&quot;Scripted Pipeline:Deploy&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>​</p> <ul><li><p>webUI方式运行Declarative Pipeline</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code>Jenkinsfile <span class="token punctuation">(</span>Declarative Pipeline<span class="token punctuation">)</span>
+pipeline <span class="token punctuation">{</span>
+    agent any
+    stages <span class="token punctuation">{</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            steps <span class="token punctuation">{</span>
+                <span class="token comment">// 编译</span>
+                echo <span class="token string gstring">&quot;Declarative Pipeline:Build&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            steps <span class="token punctuation">{</span>
+                <span class="token comment">// 测试</span>
+                echo <span class="token string gstring">&quot;Declarative Pipeline:Test&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Deploy'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            steps <span class="token punctuation">{</span>
+                <span class="token comment">// 部署</span>
+                echo <span class="token string gstring">&quot;Declarative Pipeline:Deploy&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>Blue Ocean Pipeline Editor</p></li> <li><p>通过Jenkinsfile方式(Pipeline script from SCM)运行Scripted Pipeline和Declarative Pipeline</p> <p>Jenkinsfile方式指的是在源码仓库根目录下（或其他路径），指定Jenkinsfile文件作为Pipeline的入口，可以直接在文件中书写Scripted Pipeline和Declarative Pipeline的脚本。</p></li></ul> <p>一些名词：</p> <ul><li><p>Jenkinsfile</p> <p>Pipeline模式中定义脚本，被调用的入口</p></li> <li><p>node</p> <p>一个Node就是一个Jenkins节点，或者是Master，或者是Agent，是执行Step的具体运行期环境</p></li> <li><p>agent</p> <p>为pipeline分配执行器和工作空间，类似Scripted Pipeline中的node</p></li> <li><p>stage</p> <p>一个Pipeline可以划分为若干个Stage，每个Stage代表一组操作。注意，Stage是一个逻辑分组的概念，可以跨多个Node</p></li> <li><p>steps</p> <p>Step是最基本的操作单元，小到创建一个目录，大到构建一个Docker镜像，由各类Jenkins Plugin提供，并动态扩充的</p></li></ul> <p>摘要：</p> <blockquote><p>Pipeline supports two syntaxes, Declarative (introduced in Pipeline 2.5) and Scripted Pipeline. Both
+of which support building continuous delivery pipelines. Both may be used to define a Pipeline in
+either the web UI or with a Jenkinsfile, though it’s generally considered a best practice to create a
+Jenkinsfile and check the file into the source control repository.</p> <p>Pipeline支持两种语法，陈述式（Pipeline2.5引入）和脚本式。两种语法都支持编译的持续集成。尽管通常最佳实践方式是创建一个Jenkins文件，并将其纳入源码控制，但是两种语法都可以通过 web UI 或者一个 Jenkinsfile文件的方式来使用。</p></blockquote> <blockquote><p>The agent directive, which is required, instructs Jenkins to allocate an executor and workspace for the Pipeline</p> <p>（在陈述式Pipeline中，）agent代码块是必须的，它指示Jenkins为指定Pipeline分配执行器和工作空间。</p></blockquote> <blockquote><p>The Jenkinsfile is not a replacement for an existing build tool such as GNU/Make, Maven, Gradle, etc, but rather can be viewed as a glue layer to bind the multiple phases of a project’s development lifecycle (build, test, deploy, etc) together.</p> <p>Jenkinsfile并不是现存编译工具比如GNU/Make, Maven, Gradle等的替代品，而是可以被视为一个工程研发生命周期（编译，测试，部署等）中多个阶段的粘合层。</p></blockquote> <h1 id="advanced-syntax-for-pipeline-高级语法"><a href="#advanced-syntax-for-pipeline-高级语法" aria-hidden="true" class="header-anchor">#</a> Advanced Syntax for Pipeline--高级语法</h1> <ol><li><p>String Interpolation--字符串插值</p> <p>Pipeline中字符串插值语法与groovy相同。groovy中可以用单引号、双引号来定义字符串。</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token keyword">def</span> singlyQuoted <span class="token operator">=</span> <span class="token string">'Hello'</span>
+<span class="token keyword">def</span> doublyQuoted <span class="token operator">=</span> <span class="token string gstring">&quot;World&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>只有双引号定义的字符串才可以以<code>${变量名}</code>的方式进行插值。linux shell编程中也是遵循这个规则。</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token keyword">def</span> username <span class="token operator">=</span> <span class="token string">'Jenkins'</span>
+echo <span class="token string">'Hello Mr. ${username}'</span>
+echo <span class="token string gstring">&quot;I said, Hello Mr. <span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>username<span class="token punctuation">}</span></span>&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>结果：</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code>Hello Mr<span class="token operator">.</span> <span class="token punctuation">$</span><span class="token punctuation">{</span>username<span class="token punctuation">}</span>
+I said<span class="token punctuation">,</span> Hello Mr<span class="token operator">.</span> Jenkins
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>理解怎么运用字符串插值对于运用Pipeline其它的一些高级特性是至关重要的。</p></li> <li><p>Working with the Environment--运用环境变量</p> <ul><li><p>内置环境变量：http://localhost:8080/pipeline-syntax/globals#env</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code>   <span class="token comment">// Declarative //</span>
+   pipeline <span class="token punctuation">{</span>
+       agent any
+       stages <span class="token punctuation">{</span>
+           <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Example'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               steps <span class="token punctuation">{</span>
+                   echo <span class="token string gstring">&quot;Running <span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>env<span class="token operator">.</span>BUILD_ID<span class="token punctuation">}</span></span> on <span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>env<span class="token operator">.</span>JENKINS_URL<span class="token punctuation">}</span></span>&quot;</span>
+               <span class="token punctuation">}</span>
+           <span class="token punctuation">}</span>
+       <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+   <span class="token comment">// Script //</span>
+   node <span class="token punctuation">{</span>
+       echo <span class="token string gstring">&quot;Running <span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>env<span class="token operator">.</span>BUILD_ID<span class="token punctuation">}</span></span> on <span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>env<span class="token operator">.</span>JENKINS_URL<span class="token punctuation">}</span></span>&quot;</span>
+   <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div></li> <li><p>设置环境变量</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token comment">// Declarative //</span>
+pipeline <span class="token punctuation">{</span>
+    agent any 
+    environment <span class="token punctuation">{</span>
+        CC <span class="token operator">=</span> <span class="token string">'clang'</span>
+    <span class="token punctuation">}</span>
+    stages <span class="token punctuation">{</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Example'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            environment <span class="token punctuation">{</span>
+                DEBUG_FLAGS <span class="token operator">=</span> <span class="token string">'-g'</span>
+            <span class="token punctuation">}</span>
+            steps <span class="token punctuation">{</span>
+                sh <span class="token string">'printenv'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// Script //</span>
+node <span class="token punctuation">{</span>
+    <span class="token comment">/* .. snip .. */</span>
+    <span class="token function">withEnv</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string gstring">&quot;PATH+MAVEN=<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>tool <span class="token string">'M3'</span><span class="token punctuation">}</span></span>/bin&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        sh <span class="token string">'mvn -B verify'</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>environment表达式：</p> <p>定义在顶层的环境变量全局生效，定义在stage下面的仅在该stage下生效。</p> <p>steps.withEnv:</p> <p>http://localhost:8080/job/pipeline-declarative-test/pipeline-syntax/</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token function">withEnv</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'变量=值'</span><span class="token punctuation">,</span> <span class="token string">'PATH+WHATEVER=/something'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// some block</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></li> <li><p>自定义环境变量</p> <p>环境变量存储在<code>env</code>的静态变量中，可以直接操作<code>env</code>来达到修改环境变量值的目的。<code>env</code>本质上是一个map。可以通过<code>env.环境变量名</code>来修改或者取值。</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code>echo <span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>env<span class="token operator">.</span>PATH<span class="token punctuation">}</span></span>&quot;</span>
+env<span class="token operator">.</span>ABC <span class="token operator">=</span> <span class="token string gstring">&quot;abc&quot;</span>
+echo <span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>env<span class="token operator">.</span>ABC<span class="token punctuation">}</span></span>&quot;</span>
+echo env<span class="token operator">.</span>ABC
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>这里的环境变量是全局的，在整个Jenkinsfile作用范围内也就是一个Pipeline内都可以生效。环境变量名通常大写，单词间以下划线分割。</p></li></ul></li> <li><p>Parameter--参数化构建</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token comment">// Declarative //</span>
+pipeline <span class="token punctuation">{</span>
+  agent any
+  parameters <span class="token punctuation">{</span>
+      <span class="token function">string</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">'Greeting'</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">'Hello'</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">'How should I greet the world?'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  stages <span class="token punctuation">{</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Example'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+          echo <span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>params<span class="token operator">.</span>Greeting<span class="token punctuation">}</span></span> World!&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// Script //</span>
+<span class="token function">properties</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token function">parameters</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token function">string</span><span class="token punctuation">(</span>defaultValue<span class="token punctuation">:</span> <span class="token string">'Hello'</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">'How should I greet the world?'</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'Greeting'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+node <span class="token punctuation">{</span>
+    echo <span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>params<span class="token operator">.</span>Greeting<span class="token punctuation">}</span></span> World!&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>通过<code>${params.Greeting}</code>可以取到实际输入的参数值。其他的参数类型还有<code>booleanParam</code>, <code>choice</code>, <code>file</code>, <code>text</code>, <code>password</code>, <code>run</code>, or <code>string</code>：</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token function">properties</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token function">parameters</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token function">string</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">'PERSON'</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">'Mr Jenkins'</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">'Who should I say hello to?'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">text</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">'BIOGRAPHY'</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">'Enter some information about the person'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">booleanParam</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">'TOGGLE'</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">'Toggle this value'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">choice</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">'CHOICE'</span><span class="token punctuation">,</span> choices<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'One'</span><span class="token punctuation">,</span> <span class="token string">'Two'</span><span class="token punctuation">,</span> <span class="token string">'Three'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">'Pick something'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">password</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">'PASSWORD'</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">'SECRET'</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">'Enter a password'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">file</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string gstring">&quot;FILE&quot;</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string gstring">&quot;Choose a file to upload&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">run</span><span class="token punctuation">(</span>description<span class="token punctuation">:</span> <span class="token string">'Defines the job from which the user can pick runs. The last run will be the default. These parameters are exposed to the build as environment variables:'</span><span class="token punctuation">,</span> filter<span class="token punctuation">:</span> <span class="token string">'ALL'</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'jobName'</span><span class="token punctuation">,</span> projectName<span class="token punctuation">:</span> <span class="token string">'pipeline-scripted-test'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>修改默认值的写法：</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token function">properties</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token function">parameters</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token function">string</span><span class="token punctuation">(</span>defaultValue<span class="token punctuation">:</span> <span class="token string">'Hello'</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">'How should I greetthe world?'</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'Greeting'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token function">properties</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token function">parameters</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token function">string</span><span class="token punctuation">(</span>defaultValue<span class="token punctuation">:</span> <span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>params<span class="token operator">.</span>Greeting<span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">'How should I greetthe world?'</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'Greeting'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>通过<a href="http://localhost:8080/job/pipeline-declarative-test/pipeline-syntax" target="_blank" rel="noopener noreferrer"><strong>Snippet Generator</strong><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>中的<code>properties:Set job properties</code>来生成。</p></li> <li><p>Handling Failures--失败处理</p> <ul><li><p>try/catch/finally</p></li> <li><p><a href="http://localhost:8080/job/pipeline-declarative-test/pipeline-syntax/globals#currentBuild" target="_blank" rel="noopener noreferrer"><code>currentBuild</code><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>通过<code>currentResult</code>获取当前job状态并处理</p></li></ul></li> <li><p>Using multiple agents—集群模式下指定运行node</p> <p>指定node上的执行器及分配工作空间，也可以指定docker或者dockerfile来执行构建。这部分没有实践，不细讲。</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token comment">// Declarative //</span>
+pipeline <span class="token punctuation">{</span>
+    agent none
+    stages <span class="token punctuation">{</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            agent any
+            steps <span class="token punctuation">{</span>
+                checkout scm
+                sh <span class="token string">'make'</span>
+                stash includes<span class="token punctuation">:</span> <span class="token string">'**/target/*.jar'</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'app'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test on Linux'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            agent <span class="token punctuation">{</span>
+                label <span class="token string">'linux'</span>
+            <span class="token punctuation">}</span>
+            steps <span class="token punctuation">{</span>
+                unstash <span class="token string">'app'</span>
+                sh <span class="token string">'make check'</span>
+            <span class="token punctuation">}</span>
+            post <span class="token punctuation">{</span>
+                always <span class="token punctuation">{</span>
+                    junit <span class="token string">'**/target/*.xml'</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test on Windows'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            agent <span class="token punctuation">{</span>
+                label <span class="token string">'windows'</span>
+            <span class="token punctuation">}</span>
+            steps <span class="token punctuation">{</span>
+                unstash <span class="token string">'app'</span>
+                bat <span class="token string">'make check'</span>
+            <span class="token punctuation">}</span>
+            post <span class="token punctuation">{</span>
+                always <span class="token punctuation">{</span>
+                    junit <span class="token string">'**/target/*.xml'</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// Script //</span>
+<span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    node <span class="token punctuation">{</span>
+        checkout scm
+        sh <span class="token string">'make'</span>
+        stash includes<span class="token punctuation">:</span> <span class="token string">'**/target/*.jar'</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'app'</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">node</span><span class="token punctuation">(</span><span class="token string">'linux'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        checkout scm
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            unstash <span class="token string">'app'</span>
+            sh <span class="token string">'make check'</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            junit <span class="token string">'**/target/*.xml'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">node</span><span class="token punctuation">(</span><span class="token string">'windows'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        checkout scm
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            unstash <span class="token string">'app'</span>
+            bat <span class="token string">'make check'</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            junit <span class="token string">'**/target/*.xml'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br></div></div></li> <li><p>Optional step arguments--step附加参数</p> <p>step传入附加参数，完成特殊功能。</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code>String jsonStr <span class="token operator">=</span> steps<span class="token operator">.</span>sh returnStdout<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> script<span class="token punctuation">:</span> <span class="token string gstring">&quot;echo abc&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>http://localhost:8080/job/pipeline-declarative-test/pipeline-syntax/html</p> <p>sh: Shell Script</p></li> <li><p>trigge--触发job</p> <p>checkout scm</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token comment">// SCMTrigger</span>
+<span class="token function">properties</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token function">pipelineTriggers</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token function">scm</span><span class="token punctuation">(</span><span class="token string">'H/5 * * * *'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">// TimerTrigger</span>
+<span class="token function">properties</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token function">pipelineTriggers</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token function">cron</span><span class="token punctuation">(</span><span class="token string">'H/5 * * * *'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 触发其他job</span>
+steps<span class="token operator">.</span>build job<span class="token punctuation">:</span> <span class="token string">'pipeline-scripted-test'</span><span class="token punctuation">,</span> parameters<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">string</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">'Greeting'</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token string">'Hello'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>api方式调用</p> <p>curl -X POST http://10.3.208.42:8080/jenkins/job/test-serviceApiTest/job/xhqb-svrTest/buildWithParameters --user fengyu:密码</p></li> <li><p>flow control--流程控制</p> <p>这部分遵循groovy语法，是Scripted Pipeline特有的，有if else，case when，while，.each等</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token comment">// Scripted //</span>
+node <span class="token punctuation">{</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Example'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>env<span class="token operator">.</span>BRANCH_NAME <span class="token operator">==</span> <span class="token string">'master'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            echo <span class="token string">'I only execute on the master branch'</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            echo <span class="token string">'I execute elsewhere'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token comment">// Scripted //</span>
+node <span class="token punctuation">{</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Example'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            sh <span class="token string">'exit 1'</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">exc</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            echo <span class="token string">'Something failed, I should sound the klaxons!'</span>
+            <span class="token keyword">throw</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div></li> <li><p>parallel--并行</p> <ul><li><p>简单并行</p> <p>step并行</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code>node <span class="token punctuation">{</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string gstring">&quot;Build/Test&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">parallel</span><span class="token punctuation">(</span>
+          <span class="token string gstring">&quot;b1&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            sh <span class="token string">'date'</span>
+            sh <span class="token string">'sleep 5'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string gstring">&quot;b2&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            sh <span class="token string">'date'</span>
+            sh <span class="token string">'sleep 5'</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string gstring">&quot;b3&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            sh <span class="token string">'date'</span>
+            sh <span class="token string">'sleep 5'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>stage并行</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code>node <span class="token punctuation">{</span>
+    <span class="token function">parallel</span><span class="token punctuation">(</span>
+        <span class="token string gstring">&quot;b1&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string gstring">&quot;b1&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                sh <span class="token string">'date'</span>
+                sh <span class="token string">'sleep 5'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string gstring">&quot;b2&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string gstring">&quot;b2&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                sh <span class="token string">'date'</span>
+                sh <span class="token string">'sleep 5'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string gstring">&quot;b3&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string gstring">&quot;b3&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                sh <span class="token string">'date'</span>
+                sh <span class="token string">'sleep 5'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div></li> <li><p>Parallel From Grep</p></li></ul> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token keyword">import</span> jenkins<span class="token operator">.</span>model<span class="token operator">.</span><span class="token operator">*</span>
+
+<span class="token comment">// While you can't use Groovy's .collect or similar methods currently, you can</span>
+<span class="token comment">// still transform a list into a set of actual build steps to be executed in</span>
+<span class="token comment">// parallel.</span>
+
+<span class="token keyword">def</span> stepsForParallel <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+
+<span class="token comment">// Since this method uses grep/collect it needs to be annotated with @NonCPS</span>
+<span class="token comment">// It returns a simple string map so the workflow can be serialized</span>
+<span class="token annotation punctuation">@NonCPS</span>
+<span class="token keyword">def</span> <span class="token function">jobs</span><span class="token punctuation">(</span>jobRegexp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  Jenkins<span class="token operator">.</span>instance<span class="token operator">.</span><span class="token function">getAllItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+         <span class="token operator">.</span>grep <span class="token punctuation">{</span> it<span class="token operator">.</span>name <span class="token operator">==~</span> <span class="token operator">~</span><span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>jobRegexp<span class="token punctuation">}</span></span>&quot;</span>  <span class="token punctuation">}</span>
+         <span class="token operator">.</span>collect <span class="token punctuation">{</span> <span class="token punctuation">[</span> name <span class="token punctuation">:</span> it<span class="token operator">.</span>name<span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                      fullName <span class="token punctuation">:</span> it<span class="token operator">.</span>fullName<span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">]</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+j <span class="token operator">=</span> <span class="token function">jobs</span><span class="token punctuation">(</span><span class="token string">'test-(dev|stage)-(unit|integration)'</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> j<span class="token operator">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    stepsForParallel<span class="token punctuation">[</span><span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>j<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">.</span>name<span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">transformIntoStep</span><span class="token punctuation">(</span>j<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">.</span>fullName<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Actually run the steps in parallel - parallel takes a map as an argument,</span>
+<span class="token comment">// hence the above.</span>
+parallel stepsForParallel
+
+<span class="token comment">// Take the string and echo it.</span>
+<span class="token keyword">def</span> <span class="token function">transformIntoStep</span><span class="token punctuation">(</span>jobFullName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// We need to wrap what we return in a Groovy closure, or else it's invoked</span>
+    <span class="token comment">// when this method is called, not when we pass it to parallel.</span>
+    <span class="token comment">// To do this, you need to wrap the code below in { }, and either return</span>
+    <span class="token comment">// that explicitly, or use { -&gt; } syntax.</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+       <span class="token comment">// Job parameters can be added to this step</span>
+       build jobFullName
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><ul><li><p>Parallel From List</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token comment">// While you can't use Groovy's .collect or similar methods currently, you can</span>
+<span class="token comment">// still transform a list into a set of actual build steps to be executed in</span>
+<span class="token comment">// parallel.</span>
+
+<span class="token comment">// Our initial list of strings we want to echo in parallel</span>
+<span class="token keyword">def</span> stringsToEcho <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string gstring">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token string gstring">&quot;b&quot;</span><span class="token punctuation">,</span> <span class="token string gstring">&quot;c&quot;</span><span class="token punctuation">,</span> <span class="token string gstring">&quot;d&quot;</span><span class="token punctuation">]</span>
+
+<span class="token comment">// The map we'll store the parallel steps in before executing them.</span>
+<span class="token keyword">def</span> stepsForParallel <span class="token operator">=</span> stringsToEcho<span class="token operator">.</span>collectEntries <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token string gstring">&quot;echoing <span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>it<span class="token punctuation">}</span></span>&quot;</span> <span class="token punctuation">:</span> <span class="token function">transformIntoStep</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Actually run the steps in parallel - parallel takes a map as an argument,</span>
+<span class="token comment">// hence the above.</span>
+parallel stepsForParallel
+
+<span class="token comment">// Take the string and echo it.</span>
+<span class="token keyword">def</span> <span class="token function">transformIntoStep</span><span class="token punctuation">(</span>inputString<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// We need to wrap what we return in a Groovy closure, or else it's invoked</span>
+    <span class="token comment">// when this method is called, not when we pass it to parallel.</span>
+    <span class="token comment">// To do this, you need to wrap the code below in { }, and either return</span>
+    <span class="token comment">// that explicitly, or use { -&gt; } syntax.</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        node <span class="token punctuation">{</span>
+            echo inputString
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div></li> <li><p>Parallel Multiple Nodes</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token keyword">def</span> labels <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'precise'</span><span class="token punctuation">,</span> <span class="token string">'trusty'</span><span class="token punctuation">]</span> <span class="token comment">// labels for Jenkins node types we will build on</span>
+<span class="token keyword">def</span> builders <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>x <span class="token keyword">in</span> labels<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> label <span class="token operator">=</span> x <span class="token comment">// Need to bind the label variable before the closure - can't do 'for (label in labels)'</span>
+
+    <span class="token comment">// Create a map to pass in to the 'parallel' step so we can fire all the builds at once</span>
+    builders<span class="token punctuation">[</span>label<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token function">node</span><span class="token punctuation">(</span>label<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// build steps that should happen on all nodes go here</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+parallel builders
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div></li></ul></li></ol> <p>#pipeline-syntax工具</p> <p>获取pipeline代码的快捷方式，通过jenkins自带的工具来生成。</p> <p>http://localhost:8080/pipeline-syntax/</p> <ul><li><p>Snippet Generator</p> <p>step切片生成器</p></li> <li><p>Declarative Directive Generator</p> <p>陈述式语法生成器</p></li> <li><p>Steps Reference</p> <p>根据已安装的插件，动态生成的step文档</p></li> <li><p>Global Variable Reference</p> <p>全局变量相关：env环境变量，params参数化构建时用户输入参数，currentBuild</p> <ul><li><p>env 环境变量</p></li> <li><p>params 参数化构建时用户输入参数</p></li> <li><p>currentBuild 本次构建相关参数</p> <p>currentBuild.description 二维码展示</p></li> <li><p>docker</p></li></ul></li></ul> <h1 id="multibranch-pipeline-多分支流水线"><a href="#multibranch-pipeline-多分支流水线" aria-hidden="true" class="header-anchor">#</a> Multibranch Pipeline--多分支流水线</h1> <p>Multibranch Pipeline就是只需要配置一个git代码仓库，系统会根据git仓库自动创建Pipeline分支。能自动被创建的分支需要有两个条件：</p> <p>1、满足Multibranch Pipeline设置的过滤条件；</p> <p>2、分支根目录有Jenkinsfile文件；</p> <h1 id="shared-libraries-公共库"><a href="#shared-libraries-公共库" aria-hidden="true" class="header-anchor">#</a> Shared Libraries--公共库</h1> <ol><li><p>在jenkins中创建公共库环境变量</p> <p><img src="/assets/img/20190418101445333_811671429.a34ae55e.png" alt="share library"></p></li> <li><p>一个标准的公共库代码组成：</p> <p>文件结构</p> <div class="language-shell line-numbers-mode"><pre class="language-text"><code>$ tree jenkins-pipeline2
+jenkins-pipeline2
+├── README.md
+├── src
+│   ├── com
+│   │   └── xhqb
+│   │       └── pipeline
+│   │           └── frontendWithSubmodule
+│   │               └── BaseSteps.groovy
+│   └── jenkins.gdsl
+└── vars
+    └── frontendWithSubmodule.groovy
+   
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token keyword">import</span> com<span class="token operator">.</span>xhqb<span class="token operator">.</span>pipeline<span class="token operator">.</span>frontendWithSubmodule<span class="token operator">.</span>BaseSteps
+
+<span class="token comment">// vars/buildPlugin.groovy</span>
+<span class="token keyword">def</span> <span class="token function">call</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// evaluate the body block, and collect configuration into the object</span>
+    <span class="token keyword">def</span> config <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+    body<span class="token operator">.</span>resolveStrategy <span class="token operator">=</span> Closure<span class="token operator">.</span>DELEGATE_FIRST
+    body<span class="token operator">.</span>delegate <span class="token operator">=</span> config
+    <span class="token function">body</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+    node <span class="token punctuation">{</span>
+        agent any
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string gstring">&quot;scm checkout&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            checkout scm
+        <span class="token punctuation">}</span>
+        <span class="token keyword">def</span> buildSteps <span class="token operator">=</span> <span class="token function">stepsOfBranch</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span>
+<span class="token comment">//        循环调用BaseSteps中stage</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">def</span> name <span class="token punctuation">:</span> buildSteps<span class="token operator">.</span><span class="token function">stageNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">stage</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                buildSteps<span class="token operator">.</span><span class="token function">stepOfStage</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+BaseSteps <span class="token function">stepsOfBranch</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">BaseSteps</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> config<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><div class="language-shell line-numbers-mode"><pre class="language-text"><code>//BaseSteps.groovy
+package com.xhqb.pipeline.frontendWithSubmodule
+
+
+class BaseSteps implements Serializable {
+
+    final INIT_STAGE = &quot;Init&quot;
+    final COMPILE_STAGE = &quot;Build&quot;
+
+
+    def steps
+    def env
+    def config = [:]
+    def currentBuild
+
+
+    BaseSteps(scripts, config) {
+        this.steps = scripts.steps
+        this.env = scripts.env
+        this.config = config
+        this.currentBuild = scripts.currentBuild
+    }
+
+
+    def stageNames() {
+        return [INIT_STAGE, COMPILE_STAGE]
+    }
+
+    def stepOfStage(String name) {
+        switch (name) {
+            case INIT_STAGE: return this.&amp;initStep
+            case COMPILE_STAGE: return this.&amp;compile
+            default: this.&amp;noop
+        }
+    }
+
+    def noop() {
+        steps.echo(&quot;noop&quot;)
+    }
+
+    def initStep() {
+
+    }
+
+    void compile() {
+        
+    }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br></div></div><p>jenkinsfile</p> <div class="language-groovy line-numbers-mode"><pre class="language-groovy"><code><span class="token annotation punctuation">@Library</span><span class="token punctuation">(</span><span class="token string">'xh-build@h5build'</span><span class="token punctuation">)</span> <span class="token number">_</span>
+
+frontendWithSubmodule<span class="token punctuation">{</span>
+	deployEnv <span class="token operator">=</span> <span class="token punctuation">[</span>
+			<span class="token string gstring">&quot;master&quot;</span><span class="token punctuation">:</span> <span class="token string gstring">&quot;test&quot;</span>
+	<span class="token punctuation">]</span>
+	buildConfig <span class="token operator">=</span> <span class="token punctuation">[</span>
+			<span class="token string gstring">&quot;master&quot;</span><span class="token punctuation">:</span> <span class="token string gstring">&quot;./build.sh&quot;</span>
+	<span class="token punctuation">]</span>
+	baseVersion <span class="token operator">=</span> <span class="token punctuation">[</span>
+			<span class="token string gstring">&quot;base_version&quot;</span><span class="token punctuation">:</span>  <span class="token string gstring">&quot;1.0.0&quot;</span>
+	<span class="token punctuation">]</span>
+	modulesVersion <span class="token operator">=</span> <span class="token punctuation">[</span>
+		<span class="token string gstring">&quot;apply&quot;</span><span class="token punctuation">:</span> <span class="token string gstring">&quot;1.0.0&quot;</span><span class="token punctuation">,</span>
+		<span class="token string gstring">&quot;login&quot;</span><span class="token punctuation">:</span> <span class="token string gstring">&quot;1.0.0&quot;</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div></li></ol> <p>groovy闭包的代理模式：</p> <ul><li><code>OWNER_FIRST</code>：所有者（如封闭的定义）首先检查，则委托</li> <li><code>OWNER_ONLY</code>：所有者检查，代表仅在明确引用时才被检查</li> <li><code>DELEGATE_FIRST</code>：代理首先被检查，然后所有者</li> <li><code>DELEGATE_ONLY</code>：委托第一次检查，如果引用明确</li> <li><code>TO_SELF</code>主人，才检查：既不是代表也不是所有人都检查</li></ul></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/software-test/pipeline/" class="prev router-link-active">
+          Pipline
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.c23fa696.js" defer></script><script src="/assets/js/5.caf11e4f.js" defer></script>
+  </body>
+</html>

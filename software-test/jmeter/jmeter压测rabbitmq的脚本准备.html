@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>jmeter压测rabbitmq的脚本准备 | fy &#39; 博客</title>
+    <meta name="description" content="种一棵树最好的时间是十年前，其次是现在">
+    <link rel="icon" href="/logo.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.382af5d5.css" as="style"><link rel="preload" href="/assets/js/app.c23fa696.js" as="script"><link rel="preload" href="/assets/js/2.5d8c5d2c.js" as="script"><link rel="prefetch" href="/assets/js/10.3de7248a.js"><link rel="prefetch" href="/assets/js/11.4904a425.js"><link rel="prefetch" href="/assets/js/12.96030d95.js"><link rel="prefetch" href="/assets/js/13.0ba21036.js"><link rel="prefetch" href="/assets/js/14.3f635099.js"><link rel="prefetch" href="/assets/js/15.2a5191ff.js"><link rel="prefetch" href="/assets/js/16.c353618d.js"><link rel="prefetch" href="/assets/js/17.e63ce630.js"><link rel="prefetch" href="/assets/js/18.0027b6bc.js"><link rel="prefetch" href="/assets/js/19.2c1dc938.js"><link rel="prefetch" href="/assets/js/20.ebaad522.js"><link rel="prefetch" href="/assets/js/21.7db1b099.js"><link rel="prefetch" href="/assets/js/22.db11cc7e.js"><link rel="prefetch" href="/assets/js/23.182a7787.js"><link rel="prefetch" href="/assets/js/24.ebf64856.js"><link rel="prefetch" href="/assets/js/25.0608e322.js"><link rel="prefetch" href="/assets/js/26.613b6083.js"><link rel="prefetch" href="/assets/js/27.1711dac1.js"><link rel="prefetch" href="/assets/js/28.958ebc03.js"><link rel="prefetch" href="/assets/js/29.eb04bb5b.js"><link rel="prefetch" href="/assets/js/3.8584f6e8.js"><link rel="prefetch" href="/assets/js/30.ebdc18f7.js"><link rel="prefetch" href="/assets/js/31.987f0ed9.js"><link rel="prefetch" href="/assets/js/32.2ae4c6f3.js"><link rel="prefetch" href="/assets/js/33.ec3a8309.js"><link rel="prefetch" href="/assets/js/4.48918aba.js"><link rel="prefetch" href="/assets/js/5.caf11e4f.js"><link rel="prefetch" href="/assets/js/6.50872026.js"><link rel="prefetch" href="/assets/js/7.a6f1aba8.js"><link rel="prefetch" href="/assets/js/8.b724a65b.js"><link rel="prefetch" href="/assets/js/9.8f8597d1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.382af5d5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">fy ' 博客</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/fullstack/" class="nav-link">全栈开发</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">软件测试</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/software-test/ui-autotest/" class="nav-link">UI自动化</a></li><li class="dropdown-item"><!----> <a href="/software-test/jmeter/" class="nav-link router-link-active">Jmeter</a></li><li class="dropdown-item"><!----> <a href="/software-test/pipeline/pipeline.html" class="nav-link">Pipeline</a></li></ul></div></div><div class="nav-item"><a href="/performance-tuning/" class="nav-link">系统调优</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">最佳实践</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/best-practice/vuepress.html" class="nav-link">vuepress搭建博客</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习导航</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/official-tutorial/vue.html" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/react.html" class="nav-link">React</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/django.html" class="nav-link">Django</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/github-pages.html" class="nav-link">Github Pages</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/jmeter.html" class="nav-link">jmeter</a></li></ul></div></div> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/fullstack/" class="nav-link">全栈开发</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">软件测试</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/software-test/ui-autotest/" class="nav-link">UI自动化</a></li><li class="dropdown-item"><!----> <a href="/software-test/jmeter/" class="nav-link router-link-active">Jmeter</a></li><li class="dropdown-item"><!----> <a href="/software-test/pipeline/pipeline.html" class="nav-link">Pipeline</a></li></ul></div></div><div class="nav-item"><a href="/performance-tuning/" class="nav-link">系统调优</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">最佳实践</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/best-practice/vuepress.html" class="nav-link">vuepress搭建博客</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习导航</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/official-tutorial/vue.html" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/react.html" class="nav-link">React</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/django.html" class="nav-link">Django</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/github-pages.html" class="nav-link">Github Pages</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/jmeter.html" class="nav-link">jmeter</a></li></ul></div></div> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading open"><span>Jmeter</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/software-test/jmeter/" class="sidebar-link">Jmeter</a></li><li><a href="/software-test/jmeter/jmeter模拟web端登.html" class="sidebar-link">jmeter模拟web端登</a></li><li><a href="/software-test/jmeter/jmeter压测rabbitmq的脚本准备.html" class="active sidebar-link">jmeter压测rabbitmq的脚本准备</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/software-test/jmeter/jmeter压测rabbitmq的脚本准备.html#基于springboot生产、消费消息" class="sidebar-link">基于springboot生产、消费消息</a></li><li class="sidebar-sub-header"><a href="/software-test/jmeter/jmeter压测rabbitmq的脚本准备.html#java请求编写" class="sidebar-link">java请求编写</a></li><li class="sidebar-sub-header"><a href="/software-test/jmeter/jmeter压测rabbitmq的脚本准备.html#打jar包-2" class="sidebar-link">打jar包</a></li><li class="sidebar-sub-header"><a href="/software-test/jmeter/jmeter压测rabbitmq的脚本准备.html#jmeter运行" class="sidebar-link">jmeter运行</a></li><li class="sidebar-sub-header"><a href="/software-test/jmeter/jmeter压测rabbitmq的脚本准备.html#总结" class="sidebar-link">总结</a></li><li class="sidebar-sub-header"><a href="/software-test/jmeter/jmeter压测rabbitmq的脚本准备.html#jar压缩和解压" class="sidebar-link">jar压缩和解压</a></li></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="jmeter压测rabbitmq的脚本准备"><a href="#jmeter压测rabbitmq的脚本准备" aria-hidden="true" class="header-anchor">#</a> jmeter压测rabbitmq的脚本准备</h1> <h2 id="基于springboot生产、消费消息"><a href="#基于springboot生产、消费消息" aria-hidden="true" class="header-anchor">#</a> 基于springboot生产、消费消息</h2> <h3 id="代码"><a href="#代码" aria-hidden="true" class="header-anchor">#</a> 代码</h3> <p>新建maven工程
+pom.xml</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;com.&lt;/groupId&gt;
+    &lt;artifactId&gt;rabbitmq-producer&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.1.0.RELEASE&lt;/version&gt;
+    &lt;/parent&gt;
+    
+
+
+    &lt;dependencies&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-autoconfigure&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-amqp&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+                &lt;configuration&gt;
+                    &lt;fork&gt;true&lt;/fork&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><p>ProducerApplication.java</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * \* Created with IntelliJ IDEA.
+ * \* User: yufeng
+ * \* Date: 2018/11/22
+ * \* Time: 上午11:25
+ * \* To change this template use File | Settings | File Templates.
+ * \* Description:
+ * \
+ */
+@EnableAutoConfiguration
+@Configuration
+public class ProducerApplication {
+
+    @Autowired
+    private ConnectionFactory connectionFactory;
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    @Bean
+    ConnectionFactory connectionFactory(){
+        CachingConnectionFactory connectionFactory = new CachingConnectionFactory(&quot;IP&quot;,31105);
+        connectionFactory.setCacheMode(CachingConnectionFactory.CacheMode.CHANNEL);
+        connectionFactory.setChannelCacheSize(100);
+        connectionFactory.setVirtualHost(&quot;-dev&quot;);
+        connectionFactory.setChannelCheckoutTimeout(10000);
+        connectionFactory.setCloseTimeout(10000);
+        connectionFactory.setConnectionLimit(10000);
+        connectionFactory.setUsername(&quot;admin@&quot;);
+        connectionFactory.setPassword(&quot;admin&quot;);
+        return connectionFactory;
+    }
+
+    @Bean
+    public RabbitTemplate rabbitTemplate(){
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        return rabbitTemplate;
+    }
+
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(ProducerApplication.class);
+        RabbitTemplate rabbitTemplate = (RabbitTemplate) context.getBean(&quot;rabbitTemplate&quot;);
+
+        String message = &quot;{\&quot;count\&quot;:5,\&quot;ackmode\&quot;:\&quot;ack_requeue_true\&quot;,\&quot;encoding\&quot;:\&quot;auto\&quot;,\&quot;truncate\&quot;:50000}&quot;;
+        String routingKey = &quot;accounting-initAccount-key&quot;;
+        String exchange = &quot;accounting-initAccount-exchange&quot;;
+        for (int i=0;i&lt;10;i++){
+            rabbitTemplate.convertAndSend(exchange,routingKey,message);
+        }
+        System.exit(0);
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br></div></div><p>ConsumerApplication.java</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import org.springframework.amqp.core.AcknowledgeMode;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+
+/**
+ * \* Created with IntelliJ IDEA.
+ * \* User: yufeng
+ * \* Date: 2018/11/22
+ * \* Time: 上午11:29
+ * \* To change this template use File | Settings | File Templates.
+ * \* Description:
+ * \
+ */
+@EnableAutoConfiguration
+public class ConsumerApplication {
+
+    @Autowired
+    private ConnectionFactory connectionFactory;
+
+    @Autowired
+    private SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    @Bean
+    SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory(){
+        SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory = new SimpleRabbitListenerContainerFactory();
+        simpleRabbitListenerContainerFactory.setConcurrentConsumers(50);
+        simpleRabbitListenerContainerFactory.setMaxConcurrentConsumers(100);
+        simpleRabbitListenerContainerFactory.setConnectionFactory(connectionFactory);
+        simpleRabbitListenerContainerFactory.setAcknowledgeMode(AcknowledgeMode.AUTO);
+        return simpleRabbitListenerContainerFactory;
+    }
+
+
+    @Bean
+    ConnectionFactory connectionFactory(){
+        CachingConnectionFactory connectionFactory = new CachingConnectionFactory(&quot;IP&quot;,31105);
+        connectionFactory.setCacheMode(CachingConnectionFactory.CacheMode.CHANNEL);
+        connectionFactory.setChannelCacheSize(100);
+        connectionFactory.setVirtualHost(&quot;-dev&quot;);
+        connectionFactory.setChannelCheckoutTimeout(10000);
+        connectionFactory.setCloseTimeout(10000);
+        connectionFactory.setConnectionLimit(10000);
+        connectionFactory.setUsername(&quot;admin@&quot;);
+        connectionFactory.setPassword(&quot;admin&quot;);
+        return connectionFactory;
+    }
+
+//    @RabbitListener(queues = &quot;accounting-initAccount&quot;, containerFactory = &quot;simpleRabbitListenerContainerFactory&quot;)
+//    public void onMessage(String message){
+//        System.out.printf(&quot;message is -&gt;&quot;+message+&quot;\n&quot;);
+//    }
+    @Bean
+    public RabbitTemplate rabbitTemplate(){
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        return rabbitTemplate;
+    }
+
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(ConsumerApplication.class);
+        RabbitTemplate rabbitTemplate = (RabbitTemplate) context.getBean(&quot;rabbitTemplate&quot;);
+
+        for (int i=0;i&lt;10;i++){
+            rabbitTemplate.receiveAndConvert(&quot;accounting-initAccount&quot;);
+        }
+        System.exit(0);
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br></div></div><h3 id="打jar包"><a href="#打jar包" aria-hidden="true" class="header-anchor">#</a> 打jar包</h3> <p>pom.xml增加如下配置可以用<code>mvn clean build</code>,来打带依赖的jar包</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+                &lt;configuration&gt;
+                    &lt;fork&gt;true&lt;/fork&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><code>jar xvf test.jar</code>命令解压jar包，<code>BOOT-INF/lib</code>目录下即可得到依赖的jar包。</p> <h2 id="java请求编写"><a href="#java请求编写" aria-hidden="true" class="header-anchor">#</a> java请求编写</h2> <p>新建java工程，复制以上得到的jar包，和jmeter根目录下的lib目录下的jar包，到该java工程lib目录下，并添加依赖。</p> <p>InitTemplate.java</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * \* Created with IntelliJ IDEA.
+ * \* User: yufeng
+ * \* Date: 2018/11/22
+ * \* Time: 上午11:25
+ * \* To change this template use File | Settings | File Templates.
+ * \* Description:
+ * \
+ */
+@EnableAutoConfiguration
+@Configuration
+public class InitTemplate {
+
+
+    @Autowired
+    private  ConnectionFactory connectionFactory;
+
+    @Autowired
+    private  static RabbitTemplate rabbitTemplate;
+
+    private static  ApplicationContext context;
+
+    @Bean
+    ConnectionFactory connectionFactory(){
+        CachingConnectionFactory connectionFactory = new CachingConnectionFactory(&quot;IP&quot;,31105);
+        connectionFactory.setCacheMode(CachingConnectionFactory.CacheMode.CHANNEL);
+        connectionFactory.setChannelCacheSize(100);
+        connectionFactory.setVirtualHost(&quot;-dev&quot;);
+        connectionFactory.setChannelCheckoutTimeout(10000);
+        connectionFactory.setCloseTimeout(10000);
+        connectionFactory.setConnectionLimit(10000);
+        connectionFactory.setUsername(&quot;admin@&quot;);
+        connectionFactory.setPassword(&quot;admin&quot;);
+        return connectionFactory;
+    }
+
+    @Bean
+    public RabbitTemplate rabbitTemplate(){
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        return rabbitTemplate;
+    }
+
+    public  static synchronized RabbitTemplate getTemplate(){
+        if(InitTemplate.context == null){
+            InitTemplate.context = SpringApplication.run(InitTemplate.class);
+        }
+        if(InitTemplate.rabbitTemplate == null){
+            InitTemplate.rabbitTemplate = (RabbitTemplate) context.getBean(&quot;rabbitTemplate&quot;);
+        }
+        return InitTemplate.rabbitTemplate;
+    }
+
+    public static void main(String[] args) {
+//        ApplicationContext context = SpringApplication.run(InitTemplate.class);
+//        RabbitTemplate rabbitTemplate = (RabbitTemplate) context.getBean(&quot;rabbitTemplate&quot;);
+
+        RabbitTemplate rabbitTemplate = InitTemplate.getTemplate();
+        String message = &quot;{\&quot;count\&quot;:5,\&quot;ackmode\&quot;:\&quot;ack_requeue_true\&quot;,\&quot;encoding\&quot;:\&quot;auto\&quot;,\&quot;truncate\&quot;:50000}&quot;;
+        String routingKey = &quot;accounting-initAccount-key&quot;;
+        String exchange = &quot;accounting-initAccount-exchange&quot;;
+        for (int i=0;i&lt;10;i++){
+            rabbitTemplate.convertAndSend(exchange,routingKey,message);
+//            rabbitTemplate.receiveAndConvert(&quot;accounting-initAccount&quot;);
+        }
+        System.exit(0);
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br></div></div><p>JmeterRabbitmqConsumer.java</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+import org.apache.jmeter.config.Arguments;
+import org.apache.jmeter.protocol.java.sampler.AbstractJavaSamplerClient;
+import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext;
+import org.apache.jmeter.samplers.SampleResult;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+/**
+ * \* Created with IntelliJ IDEA.
+ * \* User: yufeng
+ * \* Date: 2018/11/22
+ * \* Time: 下午2:03
+ * \* To change this template use File | Settings | File Templates.
+ * \* Description:
+ * \
+ */
+public class JmeterRabbitmqConsumer extends AbstractJavaSamplerClient {
+
+    private static final Logger logger = LoggerFactory.getLogger(JmeterRabbitmqProducer.class);
+
+
+    private String queueName;
+
+    /**
+     * 这个方法是用来自定义java方法入参的
+     * params.addArgument(&quot;num1&quot;,&quot;&quot;);表示入参名字叫num1，默认值为空。
+     * @return
+     */
+    @Override
+    public Arguments getDefaultParameters() {
+        Arguments params = new Arguments();
+        params.addArgument(&quot;queueName&quot;,&quot;accounting-initAccount&quot;);
+        return params;
+    }
+
+
+    /**
+     * 每个线程测试前执行一次，做一些初始化工作
+     * 获取输入的参数,赋值给变量,参数也可以在下面的runTest方法中获取,这里是为了展示该方法的作用
+     * @param arg0
+     */
+    @Override
+    public void setupTest(JavaSamplerContext arg0) {
+        queueName = arg0.getParameter(&quot;queueName&quot;);
+    }
+
+
+    /**
+     * 真正执行逻辑的方法
+     * @param arg0
+     * @return
+     */
+    @Override
+    public SampleResult runTest(JavaSamplerContext arg0) {
+        SampleResult sr = new SampleResult();
+
+        sr.setResponseData(&quot;消费消息;&quot;,&quot;utf-8&quot;);
+
+        logger.info(&quot;消费消息!!!&quot;);
+
+
+        try {
+            // jmeter 开始统计响应时间标记
+            sr.sampleStart();
+
+            InitTemplate.getTemplate().receiveAndConvert(queueName);
+
+
+            // 通过下面的操作就可以将被测方法的响应输出到Jmeter的察看结果树中的响应数据里面了。
+            sr.setResponseData(&quot;结果是：消费消息成功&quot;, &quot;utf-8&quot;);
+            logger.info(&quot;消费消息结束!!!&quot;);
+            sr.setDataType(SampleResult.TEXT);
+
+
+            //设置响应执行成功
+            sr.setSuccessful(true);
+        } catch (Throwable e) {
+            //有异常,执行失败
+            sr.setSuccessful(false);
+            e.printStackTrace();
+        } finally {
+            // jmeter 结束统计响应时间标记
+            sr.sampleEnd();
+        }
+        return sr;
+    }
+
+
+
+
+    /**
+     * 测试结束后调用
+     * @param arg0
+     */
+    @Override
+    public void teardownTest(JavaSamplerContext arg0) {
+
+
+    }
+
+
+    /**
+     * main方法测试程序是否可用,打包时 注释掉
+     * @param args
+     */
+
+    public static void main(String[] args) {
+//        ApplicationContext context = SpringApplication.run(ConsumerApplication.class);
+//        RabbitTemplate rabbitTemplate = (RabbitTemplate) context.getBean(&quot;rabbitTemplate&quot;);
+//
+//        for (int i=0;i&lt;10;i++){
+//            rabbitTemplate.receiveAndConvert(&quot;accounting-initAccount&quot;);
+//        }
+//        System.exit(0);
+
+//        测试
+        Arguments params = new Arguments();
+        params.addArgument(&quot;queueName&quot;,&quot;accounting-initAccount&quot;);
+        JavaSamplerContext arg0 = new JavaSamplerContext(params);
+        JmeterRabbitmqConsumer test = new JmeterRabbitmqConsumer();
+        test.setupTest(arg0);
+        test.runTest(arg0);
+        test.teardownTest(arg0);
+        System.exit(0);
+
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br></div></div><p>JmeterRabbitmqProducer.java</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import jodd.log.Logger;
+import jodd.log.LoggerFactory;
+import org.apache.jmeter.config.Arguments;
+import org.apache.jmeter.protocol.java.sampler.AbstractJavaSamplerClient;
+import org.apache.jmeter.protocol.java.sampler.JavaSamplerContext;
+import org.apache.jmeter.samplers.SampleResult;
+
+
+/**
+ * \* Created with IntelliJ IDEA.
+ * \* User: yufeng
+ * \* Date: 2018/11/22
+ * \* Time: 下午1:45
+ * \* To change this template use File | Settings | File Templates.
+ * \* Description:
+ * \
+ */
+public class JmeterRabbitmqProducer  extends AbstractJavaSamplerClient {
+
+    private static final Logger logger = LoggerFactory.getLogger(JmeterRabbitmqConsumer.class);
+
+
+
+    private String message ;
+    private String routingKey;
+    private String exchange;
+
+    /**
+     * 这个方法是用来自定义java方法入参的
+     * params.addArgument(&quot;num1&quot;,&quot;&quot;);表示入参名字叫num1，默认值为空。
+     * @return
+     */
+    @Override
+    public Arguments getDefaultParameters() {
+        Arguments params = new Arguments();
+//        params.addArgument(&quot;message&quot;,&quot;{\&quot;count\&quot;:5,\&quot;ackmode\&quot;:\&quot;ack_requeue_true\&quot;,\&quot;encoding\&quot;:\&quot;auto\&quot;,\&quot;truncate\&quot;:50000}&quot;);
+        params.addArgument(&quot;routingKey&quot;,&quot;accounting-initAccount-key&quot;);
+        params.addArgument(&quot;exchange&quot;,&quot;accounting-initAccount-exchange&quot;);
+
+        return params;
+    }
+
+
+    /**
+     * 每个线程测试前执行一次，做一些初始化工作
+     * 获取输入的参数,赋值给变量,参数也可以在下面的runTest方法中获取,这里是为了展示该方法的作用
+     * @param arg0
+     */
+    @Override
+    public void setupTest(JavaSamplerContext arg0) {
+//        message = arg0.getParameter(&quot;message&quot;);
+        routingKey = arg0.getParameter(&quot;routingKey&quot;);
+        exchange = arg0.getParameter(&quot;exchange&quot;);
+    }
+
+
+    /**
+     * 真正执行逻辑的方法
+     * @param arg0
+     * @return
+     */
+    @Override
+    public SampleResult runTest(JavaSamplerContext arg0) {
+        SampleResult sr = new SampleResult();
+
+        sr.setResponseData(&quot;生产消息;&quot;,&quot;utf-8&quot;);
+
+        logger.info(&quot;生产消息!!!&quot;);
+
+
+        try {
+            // jmeter 开始统计响应时间标记
+            sr.sampleStart();
+
+            InitTemplate.getTemplate().convertAndSend(exchange,routingKey,&quot;{\&quot;count\&quot;:5,\&quot;ackmode\&quot;:\&quot;ack_requeue_true\&quot;,\&quot;encoding\&quot;:\&quot;auto\&quot;,\&quot;truncate\&quot;:50000}&quot;);
+
+
+            // 通过下面的操作就可以将被测方法的响应输出到Jmeter的察看结果树中的响应数据里面了。
+            sr.setResponseData(&quot;结果是：生产消息成功&quot;, &quot;utf-8&quot;);
+            logger.info(&quot;生产消息结束!!!&quot;);
+            sr.setDataType(SampleResult.TEXT);
+
+
+            //设置响应执行成功
+            sr.setSuccessful(true);
+        } catch (Throwable e) {
+            //有异常,执行失败
+            sr.setSuccessful(false);
+            e.printStackTrace();
+        } finally {
+            // jmeter 结束统计响应时间标记
+            sr.sampleEnd();
+        }
+        return sr;
+    }
+
+
+
+
+    /**
+     * 测试结束后调用
+     * @param arg0
+     */
+    @Override
+    public void teardownTest(JavaSamplerContext arg0) {
+
+
+    }
+
+
+    /**
+     * main方法测试程序是否可用,打包时 注释掉
+     * @param args
+     */
+
+    public static void main(String[] args) {
+//        ApplicationContext context = SpringApplication.run(ProducerApplication.class);
+//        RabbitTemplate rabbitTemplate = (RabbitTemplate) context.getBean(&quot;rabbitTemplate&quot;);
+//
+//        String message = &quot;{\&quot;count\&quot;:5,\&quot;ackmode\&quot;:\&quot;ack_requeue_true\&quot;,\&quot;encoding\&quot;:\&quot;auto\&quot;,\&quot;truncate\&quot;:50000}&quot;;
+//        String routingKey = &quot;accounting-initAccount-key&quot;;
+//        String exchange = &quot;accounting-initAccount-exchange&quot;;
+//        for (int i=0;i&lt;10;i++){
+//            rabbitTemplate.convertAndSend(exchange,routingKey,message);
+//        }
+//        System.exit(0);
+
+//        测试
+        Arguments params = new Arguments();
+//        params.addArgument(&quot;message&quot;,&quot;{\&quot;count\&quot;:5,\&quot;ackmode\&quot;:\&quot;ack_requeue_true\&quot;,\&quot;encoding\&quot;:\&quot;auto\&quot;,\&quot;truncate\&quot;:50000}&quot;);
+        params.addArgument(&quot;routingKey&quot;,&quot;accounting-initAccount-key&quot;);
+        params.addArgument(&quot;exchange&quot;,&quot;accounting-initAccount-exchange&quot;);
+        JavaSamplerContext arg0 = new JavaSamplerContext(params);
+        JmeterRabbitmqProducer test = new JmeterRabbitmqProducer();
+        test.setupTest(arg0);
+        test.runTest(arg0);
+        test.teardownTest(arg0);
+        System.exit(0);
+    }
+
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br></div></div><h2 id="打jar包-2"><a href="#打jar包-2" aria-hidden="true" class="header-anchor">#</a> 打jar包</h2> <p><strong>创建一个java普通工程</strong></p> <p>1.点击Project创建一个Module
+<img src="/assets/img/20190418101720372_945581459.e8d4b336.png" alt="1"></p> <p>2.选择jdk,选择javaEE,点击next</p> <p><img src="/assets/img/20190418101739177_1008593613.a4ea85d3.png" alt="2"></p> <p>3.输入项目名,点击Finish</p> <p><img src="/assets/img/20190418101805996_1344427920.c60db9b4.png" alt="3"></p> <p><strong>添加依赖jar包</strong></p> <p>1.点击File -&gt;Project Structure...</p> <p><img src="/assets/img/20190418101825701_2124601353.1485904a.png" alt></p> <p>2.选择jar包,确认就可以了</p> <p><img src="/assets/img/20190418101844272_1964341202.fcbfd50c.png" alt></p> <p><strong>将程序打成jar包</strong></p> <p>1.点击File -&gt;Project Structure...-&gt;Artifacts</p> <p><img src="/assets/img/20190418101903285_1416476683.cedb6cbd.png" alt></p> <p>2.选择要打包的程序</p> <p><img src="/assets/img/20190418101927833_1867384186.ca769d81.png" alt> <img src="/assets/img/20190418101946536_1799996844.321acaad.png" alt></p> <p>3.打包程序 Build -&gt;Build Artifacts...</p> <p><img src="/assets/img/20190418102000608_944821819.5b0cea10.png" alt></p> <p>4.点击屏幕中间出现的那个小框就可以了</p> <p><img src="/assets/img/20190418102018159_1126226015.efb3d6db.png" alt></p> <blockquote><p>参考</p> <blockquote><p>https://blog.csdn.net/qq_34021712/article/details/78871739</p></blockquote></blockquote> <h2 id="jmeter运行"><a href="#jmeter运行" aria-hidden="true" class="header-anchor">#</a> jmeter运行</h2> <p>复制springboot的依赖jar包，复制java工程打的jar包，然后放在jmeter_home/lib/ext下面。然后就可以添加java请求了</p> <p>Backend Listener
+<img src="/assets/img/20190418110332125_772260957.e26ecf62.png" alt></p> <h2 id="总结"><a href="#总结" aria-hidden="true" class="header-anchor">#</a> 总结</h2> <p>实际上很多java项目都是基于springboot来完成，结合springboot的代码来完成jmeter的java请求，对于解决很多问题都有借鉴意义。</p> <p>rabbitmq服务是其它服务通过rpc来链接的，采用http的方式不能模拟这种场景下的压力状况。通过java请求，对ApplicationContext、RabbitTemplate进行单例、并对InitTemplate.getTemplate()静态方法加锁，可以复用连接，可以完成压测脚本的编写。</p> <h2 id="jar压缩和解压"><a href="#jar压缩和解压" aria-hidden="true" class="header-anchor">#</a> jar压缩和解压</h2> <ol><li><p>压缩包：
+jar cvf filename.jar a.class b.class: 压缩指定文件；
+jar cvf weibosdkcore.jar *: 全部压缩；</p></li> <li><p>解压包：
+jar xvf test.jar</p></li></ol></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/app.c23fa696.js" defer></script><script src="/assets/js/2.5d8c5d2c.js" defer></script>
+  </body>
+</html>

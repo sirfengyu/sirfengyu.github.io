@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>五、mock与axios实战2 | fy &#39; 博客</title>
+    <meta name="description" content="种一棵树最好的时间是十年前，其次是现在">
+    <link rel="icon" href="/logo.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.382af5d5.css" as="style"><link rel="preload" href="/assets/js/app.c23fa696.js" as="script"><link rel="preload" href="/assets/js/16.c353618d.js" as="script"><link rel="prefetch" href="/assets/js/10.3de7248a.js"><link rel="prefetch" href="/assets/js/11.4904a425.js"><link rel="prefetch" href="/assets/js/12.96030d95.js"><link rel="prefetch" href="/assets/js/13.0ba21036.js"><link rel="prefetch" href="/assets/js/14.3f635099.js"><link rel="prefetch" href="/assets/js/15.2a5191ff.js"><link rel="prefetch" href="/assets/js/17.e63ce630.js"><link rel="prefetch" href="/assets/js/18.0027b6bc.js"><link rel="prefetch" href="/assets/js/19.2c1dc938.js"><link rel="prefetch" href="/assets/js/2.5d8c5d2c.js"><link rel="prefetch" href="/assets/js/20.ebaad522.js"><link rel="prefetch" href="/assets/js/21.7db1b099.js"><link rel="prefetch" href="/assets/js/22.db11cc7e.js"><link rel="prefetch" href="/assets/js/23.182a7787.js"><link rel="prefetch" href="/assets/js/24.ebf64856.js"><link rel="prefetch" href="/assets/js/25.0608e322.js"><link rel="prefetch" href="/assets/js/26.613b6083.js"><link rel="prefetch" href="/assets/js/27.1711dac1.js"><link rel="prefetch" href="/assets/js/28.958ebc03.js"><link rel="prefetch" href="/assets/js/29.eb04bb5b.js"><link rel="prefetch" href="/assets/js/3.8584f6e8.js"><link rel="prefetch" href="/assets/js/30.ebdc18f7.js"><link rel="prefetch" href="/assets/js/31.987f0ed9.js"><link rel="prefetch" href="/assets/js/32.2ae4c6f3.js"><link rel="prefetch" href="/assets/js/33.ec3a8309.js"><link rel="prefetch" href="/assets/js/4.48918aba.js"><link rel="prefetch" href="/assets/js/5.caf11e4f.js"><link rel="prefetch" href="/assets/js/6.50872026.js"><link rel="prefetch" href="/assets/js/7.a6f1aba8.js"><link rel="prefetch" href="/assets/js/8.b724a65b.js"><link rel="prefetch" href="/assets/js/9.8f8597d1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.382af5d5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">fy ' 博客</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/fullstack/" class="nav-link router-link-active">全栈开发</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">软件测试</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/software-test/ui-autotest/" class="nav-link">UI自动化</a></li><li class="dropdown-item"><!----> <a href="/software-test/jmeter/" class="nav-link">Jmeter</a></li><li class="dropdown-item"><!----> <a href="/software-test/pipeline/pipeline.html" class="nav-link">Pipeline</a></li></ul></div></div><div class="nav-item"><a href="/performance-tuning/" class="nav-link">系统调优</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">最佳实践</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/best-practice/vuepress.html" class="nav-link">vuepress搭建博客</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习导航</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/official-tutorial/vue.html" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/react.html" class="nav-link">React</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/django.html" class="nav-link">Django</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/github-pages.html" class="nav-link">Github Pages</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/jmeter.html" class="nav-link">jmeter</a></li></ul></div></div> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/fullstack/" class="nav-link router-link-active">全栈开发</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">软件测试</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/software-test/ui-autotest/" class="nav-link">UI自动化</a></li><li class="dropdown-item"><!----> <a href="/software-test/jmeter/" class="nav-link">Jmeter</a></li><li class="dropdown-item"><!----> <a href="/software-test/pipeline/pipeline.html" class="nav-link">Pipeline</a></li></ul></div></div><div class="nav-item"><a href="/performance-tuning/" class="nav-link">系统调优</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">最佳实践</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/best-practice/vuepress.html" class="nav-link">vuepress搭建博客</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习导航</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/official-tutorial/vue.html" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/react.html" class="nav-link">React</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/django.html" class="nav-link">Django</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/github-pages.html" class="nav-link">Github Pages</a></li><li class="dropdown-item"><!----> <a href="/official-tutorial/jmeter.html" class="nav-link">jmeter</a></li></ul></div></div> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span></span> <!----></p> <ul class="sidebar-group-items"><li><a href="/fullstack/" class="sidebar-link">前言</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>groovy</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/fullstack/groovy/for-each.html" class="sidebar-link">for each 剖析</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>vue-todo-lists</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/fullstack/vue/vue-todolists/一、环境搭建.html" class="sidebar-link">一、环境搭建</a></li><li><a href="/fullstack/vue/vue-todolists/二、项目分析.html" class="sidebar-link">二、项目分析</a></li><li><a href="/fullstack/vue/vue-todolists/三、布局与组件.html" class="sidebar-link">三、布局与组件</a></li><li><a href="/fullstack/vue/vue-todolists/四、行为事件.html" class="sidebar-link">四、行为事件</a></li><li><a href="/fullstack/vue/vue-todolists/五、模拟api获取数据.html" class="sidebar-link">五、模拟api获取数据及vux改造</a></li><li><a href="/fullstack/vue/vue-todolists/六、参考教程.html" class="sidebar-link">六、参考教程</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="五、mock与axios实战2"><a href="#五、mock与axios实战2" aria-hidden="true" class="header-anchor">#</a> 五、mock与axios实战2</h1> <h2 id="嵌套路由"><a href="#嵌套路由" aria-hidden="true" class="header-anchor">#</a> 嵌套路由</h2> <p>src/router/index.js</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>routes: [
+    {
+      path: '/',  //访问路径
+      name: 'Layouts', // 路径名
+      component: Layouts, //访问的组件,即访问‘/’,它会加载 Layouts 组件所有的内容。
+      children: [{
+        path: '/todo/:id',
+        name: 'todo',
+        component: Todo
+      }]
+    }
+  ]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="watch"><a href="#watch" aria-hidden="true" class="header-anchor">#</a> watch</h2> <p>通过 watcher 我们能监听到任何数值属性的数值更新
+src/components/Menus.vue</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>watch: {
+    'todoId' (id) {
+        this.$router.push({
+            name: 'todo',
+            params: {
+                id: id
+            }
+        });
+        //监听到用户的点击todoId的变化在跳转路由
+    }
+},
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="新增mock"><a href="#新增mock" aria-hidden="true" class="header-anchor">#</a> 新增mock</h2> <p>src/mock/mock.js新增</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 获取todo单个列表
+        mock.onGet('/todo/listId').reply(config =&gt; {
+            let {
+                id
+            } = config.params;
+            // id 是传进来的值
+            // todo 是根据id和现有的Todos数据匹配，找出id相等的数据，在进行返回
+            let todo = Todos.find(todo =&gt; {
+                return id &amp;&amp; todo.id === id;
+            });
+            // todo.count (等待完成数目)等于 todo.record（代办事项列表下面未被选择的数据
+            todo.count = todo.record.filter((data) =&gt; {
+                return data.checked === false;
+            }).length;
+            return new Promise((resolve, reject) =&gt; {
+                setTimeout(() =&gt; {
+                    resolve([200, {
+                        todo: todo
+                    }]);
+                }, 200);
+            });
+        });
+        // 新增一条代办事项
+        mock.onPost('/todo/addRecord').reply(config =&gt; {
+            let {
+                id,
+                text
+            } = JSON.parse(config.data);
+            // id 是传进来的值唯一待办项的id
+            // text 用户新增输入的数据
+            Todos.some((t, index) =&gt; {
+                if (t.id === id) {
+                    t.record.push({
+                        text: text,
+                        isDelete: false,
+                        checked: false
+                    });
+                    return true;
+                }
+            });
+            return new Promise((resolve, reject) =&gt; {
+                setTimeout(() =&gt; {
+                    resolve([200]);
+                }, 200);
+            });
+        });
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><p>src/api/api.js新增</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//新增一个请求查询代办单项列表的数据的接口函数
+export const getTodo = params =&gt; {
+    return axios.get(`/todo/listId`, {
+        params: params
+    });
+};
+//新增一个请求新增代办单的接口函数
+export const addRecord = params =&gt; {
+    return axios.post(`/todo/addRecord`, params).then(res =&gt; res.data);
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="接口调用"><a href="#接口调用" aria-hidden="true" class="header-anchor">#</a> 接口调用</h2> <p>src/components/Todo.vue</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div class=&quot;page lists-show&quot;&gt;
+    &lt;!-- 头部模块 --&gt;
+    &lt;nav&gt;
+      &lt;!-- 当用户浏览车窗口尺寸小于40em时候，显示手机端的菜单图标 --&gt;
+      &lt;div class=&quot;nav-group&quot;&gt;
+        &lt;a class=&quot;nav-item&quot;&gt;
+          &lt;span class=&quot;icon-list-unordered&quot;&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;!-- 显示标题和数字模块 --&gt;
+      &lt;h1 class=&quot;title-page&quot;&gt;
+        &lt;span class=&quot;title-wrapper&quot;&gt;{{todo.title}}&lt;/span&gt;  &lt;!-- title:标题 绑定标题 --&gt;
+        &lt;span class=&quot;count-list&quot;&gt;{{todo.count || 0}}&lt;/span&gt;&lt;!-- count:数量 绑定代办单项熟练--&gt;
+      &lt;/h1&gt;
+      &lt;!-- 右边显示删除图标和锁定图标的模块 --&gt;
+      &lt;div class=&quot;nav-group right&quot;&gt;
+        &lt;div class=&quot;options-web&quot;&gt;
+          &lt;a class=&quot; nav-item&quot;&gt;
+            &lt;!-- cicon-lock锁定的图标
+            icon-unlock：非锁定的图标
+            --&gt;
+            &lt;span class=&quot;icon-lock&quot; v-if=&quot;todo.locked&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-unlock&quot; v-else&gt;
+            &lt;/span&gt;
+          &lt;/a&gt;
+          &lt;a class=&quot; nav-item&quot;&gt;
+            &lt;span class=&quot;icon-trash&quot;&gt;
+            &lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- 用户新增代办事项的input模块 --&gt;
+      &lt;div class=&quot; form todo-new input-symbol&quot;&gt;
+        &lt;!-- 绑定disabled值，当todo.locked为绑定的时候，禁止input输入 --&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;text&quot; placeholder='请输入' :disabled=&quot;todo.locked&quot; /&gt;
+        &lt;span class=&quot;icon-add&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;!-- 列表主体模块 --&gt;
+    &lt;div class=&quot;content-scrollable list-items&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;  
+export default {
+  data() {
+    return {
+      todo: {
+        title: '星期一', //标题
+        count: 12, //数量
+        locked: false //是否绑定
+      },
+      items: [  //代办单项列表
+      ],
+      text: '' //用户输入单项项绑定的输入
+    }
+  }
+}
+&lt;/script&gt;
+&lt;style lang = &quot;less&quot;&gt;
+@import '../assets/style/nav.less';
+@import '../assets/style/form.less';
+@import '../assets/style/todo.less';
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br></div></div><h3 id="修改todo的onadd逻辑"><a href="#修改todo的onadd逻辑" aria-hidden="true" class="header-anchor">#</a> 修改todo的onadd逻辑</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>onAdd() {
+    //当用户输入文字，并且回车时调用次方法。
+    const ID = this.$route.params.id;
+    addRecord({
+        id: ID,
+        text: this.text
+    }).then(res =&gt; {
+        this.text = '';
+        this.init();
+        //请求成功后初始化
+    });
+},
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="总结："><a href="#总结：" aria-hidden="true" class="header-anchor">#</a> 总结：</h2> <ul><li>命名路由</li> <li>嵌套路由</li> <li>watch: {}</li> <li>created()</li></ul></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/app.c23fa696.js" defer></script><script src="/assets/js/16.c353618d.js" defer></script>
+  </body>
+</html>
