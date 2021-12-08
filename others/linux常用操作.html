@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>linux常用操作 | fy&#39;博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/public/favicon.ico">
+    <meta name="description" content="做有意义的事，成为想成为的人">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.9b6eee0c.css" as="style"><link rel="preload" href="/assets/js/app.8f481d6d.js" as="script"><link rel="preload" href="/assets/js/3.8bc4d7d1.js" as="script"><link rel="preload" href="/assets/js/1.70bb4a11.js" as="script"><link rel="preload" href="/assets/js/38.9334edd5.js" as="script"><link rel="prefetch" href="/assets/js/10.af285c2e.js"><link rel="prefetch" href="/assets/js/11.bfa251d3.js"><link rel="prefetch" href="/assets/js/12.9c683e0a.js"><link rel="prefetch" href="/assets/js/13.538cb349.js"><link rel="prefetch" href="/assets/js/14.ce93dcf0.js"><link rel="prefetch" href="/assets/js/15.81fcfce5.js"><link rel="prefetch" href="/assets/js/16.31556b6e.js"><link rel="prefetch" href="/assets/js/17.3ff2e760.js"><link rel="prefetch" href="/assets/js/18.d5680179.js"><link rel="prefetch" href="/assets/js/19.d51de36a.js"><link rel="prefetch" href="/assets/js/20.7fc9b5b1.js"><link rel="prefetch" href="/assets/js/21.9bc8cd3a.js"><link rel="prefetch" href="/assets/js/22.6c4dde5a.js"><link rel="prefetch" href="/assets/js/23.18ca0cd8.js"><link rel="prefetch" href="/assets/js/24.a33c0482.js"><link rel="prefetch" href="/assets/js/25.0da31f07.js"><link rel="prefetch" href="/assets/js/26.402bbc67.js"><link rel="prefetch" href="/assets/js/27.01ab1d41.js"><link rel="prefetch" href="/assets/js/28.b9bb5ec1.js"><link rel="prefetch" href="/assets/js/29.47b6e026.js"><link rel="prefetch" href="/assets/js/30.2965a7de.js"><link rel="prefetch" href="/assets/js/31.8d74415f.js"><link rel="prefetch" href="/assets/js/32.0f5e55d7.js"><link rel="prefetch" href="/assets/js/33.4703ec88.js"><link rel="prefetch" href="/assets/js/34.624e29e5.js"><link rel="prefetch" href="/assets/js/35.6a785393.js"><link rel="prefetch" href="/assets/js/36.d44c9e51.js"><link rel="prefetch" href="/assets/js/37.6b1a0bab.js"><link rel="prefetch" href="/assets/js/39.5f468800.js"><link rel="prefetch" href="/assets/js/4.7eb3df7b.js"><link rel="prefetch" href="/assets/js/40.d275d19c.js"><link rel="prefetch" href="/assets/js/41.18129da0.js"><link rel="prefetch" href="/assets/js/42.ef80c024.js"><link rel="prefetch" href="/assets/js/43.bedbae01.js"><link rel="prefetch" href="/assets/js/44.7897fa30.js"><link rel="prefetch" href="/assets/js/45.b528f408.js"><link rel="prefetch" href="/assets/js/5.aeb3d35f.js"><link rel="prefetch" href="/assets/js/6.63464ea5.js"><link rel="prefetch" href="/assets/js/7.a01077db.js"><link rel="prefetch" href="/assets/js/8.9611b4b3.js"><link rel="prefetch" href="/assets/js/9.a9819b44.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9b6eee0c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>fy'博客</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Yu.Feng</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="fy'博客" class="logo"> <span class="site-name">fy'博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/读书笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  读书笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/全栈开发/" class="nav-link"><i class="iconfont undefined"></i>
+  全栈开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/最佳实践/" class="nav-link"><i class="iconfont undefined"></i>
+  最佳实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/文档小站/" class="nav-link"><i class="iconfont undefined"></i>
+  文档小站
+</a></li><li class="dropdown-item"><!----> <a href="/categories/软件测试/" class="nav-link"><i class="iconfont undefined"></i>
+  软件测试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计划/" class="nav-link"><i class="iconfont undefined"></i>
+  计划
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/head.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    Yu.Feng
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>18</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>13</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/读书笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  读书笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/全栈开发/" class="nav-link"><i class="iconfont undefined"></i>
+  全栈开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/最佳实践/" class="nav-link"><i class="iconfont undefined"></i>
+  最佳实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/文档小站/" class="nav-link"><i class="iconfont undefined"></i>
+  文档小站
+</a></li><li class="dropdown-item"><!----> <a href="/categories/软件测试/" class="nav-link"><i class="iconfont undefined"></i>
+  软件测试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计划/" class="nav-link"><i class="iconfont undefined"></i>
+  计划
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>linux常用操作</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Yu.Feng</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-2d5f533b><main class="page"><div class="page-title" style="display:none;"><h1 class="title">linux常用操作</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>Yu.Feng</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2021-06-01</span></i> <!----> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>linux</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="linux常用操作"><a href="#linux常用操作" class="header-anchor">#</a> linux常用操作</h1> <h2 id="_1-重复之前的命令"><a href="#_1-重复之前的命令" class="header-anchor">#</a> 1. 重复之前的命令</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>history 显示命令历史列表
+
+↑(Ctrl+p) 显示上一条命令
+
+↓(Ctrl+n) 显示下一条命令
+
+!num 执行命令历史列表的第num条命令
+
+!! 执行上一条命令
+
+!?string? 执行含有string字符串的最新命令
+
+ctrl+r
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="_2-linux挂载共享存储"><a href="#_2-linux挂载共享存储" class="header-anchor">#</a> 2. linux挂载共享存储</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo mount -t  cifs //192.168.1.85/public /root/public  -o username=sheare,password='',vers=2.0,dir_mode=0777,file_mode=0777 
+sudo mount -t cifs //192.168.1.85/public /home/fengyu/public -o username=sheare,password='',vers=2.0
+sudo mount -t cifs //192.168.1.85/public/ansible-install/v1.5.0/bin /home/fengyu/gitlab/InstallationYTung/bin -o username=sheare,password='',vers=2.0
+sudo mount -t cifs //192.168.1.85/publicansible-install/v1.5.0/images-pushed /home/fengyu/gitlab/InstallationYTung//home/fengyu/gitlab/InstallationYTung/resources/images-pushed -o username=sheare,password='',vers=2.0
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="_3-静态ip"><a href="#_3-静态ip" class="header-anchor">#</a> 3. 静态ip</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>cat /etc/netplan/50-cloud-init.yaml
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>cat &lt;&lt; EOF &gt; /etc/netplan/50-cloud-init.yaml
+network:
+    ethernets:
+        ens33:
+            dhcp4: no
+            addresses: [192.168.172.91/24]
+            optional: true
+            gateway4: 192.168.172.81
+            nameservers:
+                    addresses: [8.8.8.8]
+ 
+    version: 2
+EOF
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>ifconfig eth0 192.168.1.4 netmask 255.255.255.0
+route add default gw 192.168.172.81
+sudo netplan apply
+ip addr
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="_4-dns配置"><a href="#_4-dns配置" class="header-anchor">#</a> 4. dns配置</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim /etc/systemd/resolved.conf 
+systemctl restart systemd-resolved.service
+systemd-resolve --status 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_5-查看那些文件占用多"><a href="#_5-查看那些文件占用多" class="header-anchor">#</a> 5. 查看那些文件占用多</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>#磁盘占用情况
+df -h
+# 查看那个目录空间大
+sudo du -s /* | sudo sort -nr
+#当前目录文件夹大小情况
+du -h --max-depth=1
+#是否删除掉的文件仍然被占用
+lsof | grep deleted
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h2 id="_6-杀进程"><a href="#_6-杀进程" class="header-anchor">#</a> 6. 杀进程</h2> <p>lsof -i :端口
+kill -9 进程ID</p> <p>lsof -i:8000
+kill -9 1730</p> <h2 id="_7-终端走代理"><a href="#_7-终端走代理" class="header-anchor">#</a> 7. 终端走代理</h2> <p>export ALL_PROXY=socks5://127.0.0.1:1080</p> <h2 id="_8-带密码zip文件解压"><a href="#_8-带密码zip文件解压" class="header-anchor">#</a> 8. 带密码zip文件解压</h2> <p>zipcloak -d
+unzip</p> <p>##目录大小
+<code>df -h</code><br>
+命令查看整个硬盘的大小 ，-h表示人可读的
+<code>du -d 1 -h</code>
+命令查看当前目录下所有文件夹的大小 -d 指深度，后面加一个数值</p> <h2 id="_9-查找30天以前的文件并执行操作"><a href="#_9-查找30天以前的文件并执行操作" class="header-anchor">#</a> 9. 查找30天以前的文件并执行操作</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">find</span> /Users/xuran/.jenkins/userContent -mtime +30 -name <span class="token string">&quot;*.*&quot;</span> -exec <span class="token function">ls</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">\</span><span class="token punctuation">;</span>
+<span class="token function">find</span> /Users/xuran/.jenkins/job -mtime +30 -name <span class="token string">&quot;*.*&quot;</span> -exec <span class="token function">ls</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">\</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_10-ubuntu打开文件夹"><a href="#_10-ubuntu打开文件夹" class="header-anchor">#</a> 10. ubuntu打开文件夹</h2> <p>nautilus /etc
+alias op='nautilus'</p> <h2 id="_11-图片优化"><a href="#_11-图片优化" class="header-anchor">#</a> 11. 图片优化</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>#jpg
+sudo apt-get install jpegoptim
+find . -name &quot;*.JPG&quot; | xargs jpegoptim
+#png
+sudo apt-get install optipng
+find . -name *.png | xargs optipng
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="_12-删除30天前的文件"><a href="#_12-删除30天前的文件" class="header-anchor">#</a> 12. 删除30天前的文件</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>find /Users/xuran/.jenkins/userContent -mtime +200 -name &quot;*.*&quot; -exec ls {} \;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="_13-新增用户加入sudo"><a href="#_13-新增用户加入sudo" class="header-anchor">#</a> 13. 新增用户加入sudo</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>useradd -d /home/apulis -g &quot;0&quot; -u &quot;552&quot; -m -s /bin/bash &quot;apulis&quot;
+
+useradd -d /home/apulis -g &quot;0&quot; -m -s /bin/bash &quot;apulis&quot;
+usermod apulis -a -G sudo
+vim /etc/sudoers
+%sudo   ALL=(ALL:ALL) NOPASSWD:ALL
+
+passwd apulis
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h2 id="_14-root远程登录"><a href="#_14-root远程登录" class="header-anchor">#</a> 14. root远程登录</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim /etc/ssh/sshd_config
+PermitRootLogin yes
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_15-免密登录"><a href="#_15-免密登录" class="header-anchor">#</a> 15. 免密登录</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>ssh-copy-id
+.ssh/authorized_keys
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_16-docker"><a href="#_16-docker" class="header-anchor">#</a> 16. docker</h2> <p>配置软件源，安装docker</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot;
+sudo apt update
+sudo apt upgrade
+sudo apt-get --no-install-recommends install -y docker-ce docker-ce-cli containerd.io
+
+sudo apt-get --no-install-recommends install -y python3-pip python3-setuptools
+sudo python3 -m pip install setuptools docker-compose
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>当前用户加入docker用户组</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+sudo groupadd docker
+sudo usermod -aG docker ${USER}
+#sudo chmod 666 /var/run/docker.sock
+newgrp docker
+sudo systemctl restart docker 
+sudo systemctl enable docker
+sudo systemctl start docker
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>如果要配置 Docker 镜像加速，打开 <code>/etc/docker/daemon.json</code> 文件，registry-mirrors 增加或修改，加入<code>https://registry.docker-cn.com</code> 这个地址，也可以填写阿里云腾讯云等镜像加速地址。</p> <p>示例</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+{
+    &quot;registry-mirrors&quot;: [
+        &quot;https://docker.mirrors.ustc.edu.cn/&quot;,
+        &quot;https://hub-mirror.c.163.com&quot;,
+        &quot;https://registry.docker-cn.com&quot;
+    ],
+    &quot;insecure-registries&quot;: [
+        &quot;10.31.3.222:8443&quot;
+    ]
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>重启 Docker，使配置生效</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">sudo</span> systemctl daemon-reload
+<span class="token function">sudo</span> systemctl restart docker
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_17-ohmyzsh"><a href="#_17-ohmyzsh" class="header-anchor">#</a> 17. ohmyzsh</h2> <p>安装</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo apt install zsh -y
+chsh -s /bin/zsh
+sudo reboot
+echo $SHELL
+
+sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>alias vs='code $1'
+alias open='nautilus $1'
+alias open='xdg-open'
+alias idea='_a(){ pycharm64.exe $1  &amp;}; _a'
+alias pycharm='_a(){ idea64.exe $1  &amp;}; _a'
+
+
+
+plugins=( z git extract sudo web-search last-working-dir zsh-autosuggestions zsh-syntax-highlighting)
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="_18-crontab"><a href="#_18-crontab" class="header-anchor">#</a> 18. crontab</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo service cron start
+crontab -e
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_19-pip源"><a href="#_19-pip源" class="header-anchor">#</a> 19. pip源</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>                              pip config set install.trusted-host mirrors.aliyun.com
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="_19-gpu驱动"><a href="#_19-gpu驱动" class="header-anchor">#</a> 19. gpu驱动</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo apt install ubuntu-drivers-common
+ubuntu-drivers devices
+sudo ubuntu-drivers autoinstall
+sudo apt install nvidia-driver-455
+nvidia-smi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="_21-启用https"><a href="#_21-启用https" class="header-anchor">#</a> 21. 启用https</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code># 启用HTTPS  
+$ sudo apt install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_22-查看本地公网ip"><a href="#_22-查看本地公网ip" class="header-anchor">#</a> 22. 查看本地公网ip</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>curl myip.ipip.net
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>##快速查询目录大小</p> <h2 id="_23-autossh"><a href="#_23-autossh" class="header-anchor">#</a> 23. autossh</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>autossh -p 50018 -NCPfg root@119.147.212.162 -L 3388:127.0.0.1:5432
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="_24-问题解决"><a href="#_24-问题解决" class="header-anchor">#</a> 24. 问题解决</h2> <h3 id="_24-1-no-pubkey"><a href="#_24-1-no-pubkey" class="header-anchor">#</a> 24.1. NO_PUBKEY</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `sudo apt update 2&gt;&amp;1 | grep -o '[0-9A-Z]\{16\}$' | xargs`
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `sudo apt update 2&gt;&amp;1 | grep -o '[0-9A-Z]\{16\}$' | xargs`
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>安装y-ppa-manager</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo add-apt-repository ppa:webupd8team/y-ppa-manager
+sudo apt-get update
+sudo apt-get install y-ppa-manager
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="_24-2-linuxmint国内源"><a href="#_24-2-linuxmint国内源" class="header-anchor">#</a> 24.2. linuxmint国内源</h3> <p>ubuntu20.04版本代号<code>focal</code></p> <p><a href="https://mirrors.ustc.edu.cn/help/linuxmint.html#id5" target="_blank" rel="noopener noreferrer">清华linuxmint源<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>
+编辑 <code>/etc/apt/sources.list.d/official-package-repositories.list</code> ：</p> <ul><li>对于基于 Ubuntu 的原版，以 Linuxmint 19 为例：</li></ul> <p>deb https://mirrors.ustc.edu.cn/linuxmint/ tara main upstream <strong>import</strong> <strong>backport</strong>
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb http://archive.canonical.com/ubuntu/ bionic partner</p> <ul><li>对于基于 Debian 的 LMDE，以 LMDE 2 为例：</li></ul> <p>deb https://mirrors.ustc.edu.cn/linuxmint/ betsy main upstream <strong>import</strong> <strong>deb</strong> https://mirrors.ustc.edu.cn/debian jessie main contrib non-free
+deb https://mirrors.ustc.edu.cn/debian jessie-updates main contrib non-free
+deb https://mirrors.ustc.edu.cn/debian jessie-backports main contrib non-free
+deb https://mirrors.ustc.edu.cn/debian-security/ jessie/updates main non-free contrib
+deb https://mirrors.ustc.edu.cn/deb-multimedia/ jessie main non-free</p> <p>然后运行 <code>sudo apt-get update</code> 更新索引以生效。</p> <p>小技巧</p> <p>完成后请不要再使用 mintsources（自带的图形化软件源设置工具）进行任何操作，因为在操作后，无论是否有按“确定”，mintsources 均会复写 <code>/etc/apt/sources.list.d/official-package-repositories.list</code> 。</p> <h3 id="_24-3-解决apt-get安装中的e-sub-process-usr-bin-dpkg-returned-an-error-code"><a href="#_24-3-解决apt-get安装中的e-sub-process-usr-bin-dpkg-returned-an-error-code" class="header-anchor">#</a> 24.3. 解决apt-get安装中的E: Sub-process /usr/bin/dpkg returned an error code</h3> <p>在用apt-get安装软件包的时候遇到E: Sub-process /usr/bin/dpkg returned an error code (1)问题，解决方法如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd /var/lib/dpkg/
+sudo mv info/ info_bak
+sudo mkdir info
+sudo apt-get update
+sudo apt-get -f install
+sudo mv info/* info_bak/
+sudo rm -rf info
+sudo mv info_bak info
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="_24-4-dns配置"><a href="#_24-4-dns配置" class="header-anchor">#</a> 24.4. dns配置</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim /etc/systemd/resolved.conf 
+systemctl restart systemd-resolved.service
+systemd-resolve --status 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">11/25/2021, 20:48:07</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.8f481d6d.js" defer></script><script src="/assets/js/3.8bc4d7d1.js" defer></script><script src="/assets/js/1.70bb4a11.js" defer></script><script src="/assets/js/38.9334edd5.js" defer></script>
+  </body>
+</html>

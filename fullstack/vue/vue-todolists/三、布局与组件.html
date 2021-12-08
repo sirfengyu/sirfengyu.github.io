@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>三、布局与组件 | fy&#39;博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/public/favicon.ico">
+    <meta name="description" content="做有意义的事，成为想成为的人">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.9b6eee0c.css" as="style"><link rel="preload" href="/assets/js/app.8f481d6d.js" as="script"><link rel="preload" href="/assets/js/3.8bc4d7d1.js" as="script"><link rel="preload" href="/assets/js/1.70bb4a11.js" as="script"><link rel="preload" href="/assets/js/24.a33c0482.js" as="script"><link rel="prefetch" href="/assets/js/10.af285c2e.js"><link rel="prefetch" href="/assets/js/11.bfa251d3.js"><link rel="prefetch" href="/assets/js/12.9c683e0a.js"><link rel="prefetch" href="/assets/js/13.538cb349.js"><link rel="prefetch" href="/assets/js/14.ce93dcf0.js"><link rel="prefetch" href="/assets/js/15.81fcfce5.js"><link rel="prefetch" href="/assets/js/16.31556b6e.js"><link rel="prefetch" href="/assets/js/17.3ff2e760.js"><link rel="prefetch" href="/assets/js/18.d5680179.js"><link rel="prefetch" href="/assets/js/19.d51de36a.js"><link rel="prefetch" href="/assets/js/20.7fc9b5b1.js"><link rel="prefetch" href="/assets/js/21.9bc8cd3a.js"><link rel="prefetch" href="/assets/js/22.6c4dde5a.js"><link rel="prefetch" href="/assets/js/23.18ca0cd8.js"><link rel="prefetch" href="/assets/js/25.0da31f07.js"><link rel="prefetch" href="/assets/js/26.402bbc67.js"><link rel="prefetch" href="/assets/js/27.01ab1d41.js"><link rel="prefetch" href="/assets/js/28.b9bb5ec1.js"><link rel="prefetch" href="/assets/js/29.47b6e026.js"><link rel="prefetch" href="/assets/js/30.2965a7de.js"><link rel="prefetch" href="/assets/js/31.8d74415f.js"><link rel="prefetch" href="/assets/js/32.0f5e55d7.js"><link rel="prefetch" href="/assets/js/33.4703ec88.js"><link rel="prefetch" href="/assets/js/34.624e29e5.js"><link rel="prefetch" href="/assets/js/35.6a785393.js"><link rel="prefetch" href="/assets/js/36.d44c9e51.js"><link rel="prefetch" href="/assets/js/37.6b1a0bab.js"><link rel="prefetch" href="/assets/js/38.9334edd5.js"><link rel="prefetch" href="/assets/js/39.5f468800.js"><link rel="prefetch" href="/assets/js/4.7eb3df7b.js"><link rel="prefetch" href="/assets/js/40.d275d19c.js"><link rel="prefetch" href="/assets/js/41.18129da0.js"><link rel="prefetch" href="/assets/js/42.ef80c024.js"><link rel="prefetch" href="/assets/js/43.bedbae01.js"><link rel="prefetch" href="/assets/js/44.7897fa30.js"><link rel="prefetch" href="/assets/js/45.b528f408.js"><link rel="prefetch" href="/assets/js/5.aeb3d35f.js"><link rel="prefetch" href="/assets/js/6.63464ea5.js"><link rel="prefetch" href="/assets/js/7.a01077db.js"><link rel="prefetch" href="/assets/js/8.9611b4b3.js"><link rel="prefetch" href="/assets/js/9.a9819b44.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9b6eee0c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>fy'博客</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Yu.Feng</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="fy'博客" class="logo"> <span class="site-name">fy'博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/读书笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  读书笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/全栈开发/" class="nav-link"><i class="iconfont undefined"></i>
+  全栈开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/最佳实践/" class="nav-link"><i class="iconfont undefined"></i>
+  最佳实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/文档小站/" class="nav-link"><i class="iconfont undefined"></i>
+  文档小站
+</a></li><li class="dropdown-item"><!----> <a href="/categories/软件测试/" class="nav-link"><i class="iconfont undefined"></i>
+  软件测试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计划/" class="nav-link"><i class="iconfont undefined"></i>
+  计划
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/head.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    Yu.Feng
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>18</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>13</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/读书笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  读书笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/全栈开发/" class="nav-link"><i class="iconfont undefined"></i>
+  全栈开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/最佳实践/" class="nav-link"><i class="iconfont undefined"></i>
+  最佳实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/文档小站/" class="nav-link"><i class="iconfont undefined"></i>
+  文档小站
+</a></li><li class="dropdown-item"><!----> <a href="/categories/软件测试/" class="nav-link"><i class="iconfont undefined"></i>
+  软件测试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计划/" class="nav-link"><i class="iconfont undefined"></i>
+  计划
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e></h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Yu.Feng</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-2d5f533b><main class="page" style="padding-right:0;"><div class="page-title" style="display:none;"><h1 class="title">三、布局与组件</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>Yu.Feng</span></i> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="三、布局与组件"><a href="#三、布局与组件" class="header-anchor">#</a> 三、布局与组件</h1> <h2 id="新增layouts"><a href="#新增layouts" class="header-anchor">#</a> 新增layouts</h2> <h3 id="静态资源配置"><a href="#静态资源配置" class="header-anchor">#</a> 静态资源配置</h3> <p>复制<a href="https://github.com/liangxiaojuan/vue-todos/tree/master/src/common" target="_blank" rel="noopener noreferrer">资源<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>文件到assets目录</p> <h3 id="新增组件src-components-layouts-vue"><a href="#新增组件src-components-layouts-vue" class="header-anchor">#</a> 新增组件src/components/Layouts.vue</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+    &lt;section class=&quot;container&quot;&gt;
+        &lt;!--最外层容器--&gt;
+        &lt;section class=&quot;menu&quot;&gt;
+            &lt;!--左边的容器--&gt;
+        &lt;/section&gt;
+        &lt;section class=&quot;content-container&quot;&gt;
+            &lt;!--右边的容器--&gt;
+        &lt;/section&gt;
+    &lt;/section&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default {};
+&lt;/script&gt;
+
+&lt;style lang=&quot;less&quot;&gt;
+    @import '../assets/style/layouts.less';
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h2 id="修改vue-router"><a href="#修改vue-router" class="header-anchor">#</a> 修改vue-router</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+      path: '/',  //访问路径
+      name: 'Layouts', // 路径名
+      component: Layouts //访问的组件,即访问‘/’,它会加载 Layouts 组件所有的内容。
+    }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>至此可以运行<code>yarn serve</code>查看效果</p> <h2 id="menus-vue-菜单组件"><a href="#menus-vue-菜单组件" class="header-anchor">#</a> menus.vue(菜单组件)</h2> <h3 id="新增src-components-menus-vue"><a href="#新增src-components-menus-vue" class="header-anchor">#</a> 新增src/components/Menus.vue</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+    &lt;div class=&quot;list-todos&quot;&gt;
+        &lt;!--菜单容器--&gt;
+        &lt;a class=&quot;list-todo activeListClass list&quot;&gt;
+            &lt;!--单个菜单容器--&gt;
+            &lt;span class=&quot;icon-lock&quot;&gt;&lt;/span&gt;
+            &lt;!--锁的图标--&gt;
+            &lt;span class=&quot;count-list&quot;&gt;1&lt;/span&gt;
+            &lt;!--数字--&gt;
+            星期一
+            &lt;!--菜单内容--&gt;
+        &lt;/a&gt;
+        &lt;a class=&quot; link-list-new&quot;&gt;
+            &lt;!--新增菜单--&gt;
+            &lt;span class=&quot;icon-plus&quot;&gt;
+          &lt;/span&gt; 新增
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default {};
+&lt;/script&gt;
+
+&lt;style lang=&quot;less&quot;&gt;
+    @import '../assets/style/menu.less';
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h3 id="修改-src-components-layouts-vue"><a href="#修改-src-components-layouts-vue" class="header-anchor">#</a> 修改 src/components/Layouts.vue</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+    &lt;section class=&quot;container&quot;&gt;
+        &lt;!--最外层容器--&gt;
+        &lt;section class=&quot;menu&quot;&gt;
+            &lt;!--左边的容器--&gt;
+            &lt;Menus&gt;&lt;/Menus&gt;
+        &lt;/section&gt;
+        &lt;section class=&quot;content-container&quot;&gt;
+            &lt;!--右边的容器--&gt;
+        &lt;/section&gt;
+    &lt;/section&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import Menus from './Menus'; // * 导入刚才我们创建的 menus组件
+    export default {
+        components: { // * 注册menus组件，让其可以在template调用
+            Menus
+        }
+    };
+&lt;/script&gt;
+
+&lt;style lang=&quot;less&quot;&gt;
+    @import '../assets/style/layouts.less';
+&lt;/style&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/section" target="_blank" rel="noopener noreferrer">html&lt;section&gt;标签<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="修改src-components-menus-vue"><a href="#修改src-components-menus-vue" class="header-anchor">#</a> 修改src/components/Menus.vue</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div class=&quot;list-todos&quot;&gt;
+    &lt;a class=&quot;list-todo list activeListClass&quot; v-for=&quot;item in items&quot; v-bind:key=&quot;item.index&quot;&gt;
+      &lt;!-- v-for 列表渲染--&gt;
+      &lt;span class=&quot;icon-lock&quot; v-if=&quot;item.locked&quot;&gt;&lt;/span&gt;
+      &lt;!-- v-if 条件渲染--&gt;
+      &lt;span class=&quot;count-list&quot; v-if=&quot;item.count &gt; 
+            0&quot;&gt;{{item.count}}&lt;/span&gt; {{item.title}}
+      &lt;!-- 数据绑定，看模板语法--&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot; link-list-new&quot;&gt;
+      &lt;!--新增菜单--&gt;
+      &lt;span class=&quot;icon-plus&quot;&gt;
+              &lt;/span&gt; 新增
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default {
+    data() { //data函数
+      return {
+        items: [{
+            title: '星期一',
+            count: 1,
+            locked: true
+          }, //菜单的模拟数据
+          {
+            title: '星期二',
+            count: 2,
+            locked: true
+          }, {
+            title: '星期三',
+            count: 3,
+            locked: false
+          }
+        ]
+      };
+    }
+  };
+&lt;/script&gt;
+
+&lt;style lang=&quot;less&quot;&gt;
+  @import '../assets/style/menu.less';
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><ul><li>v-for</li> <li>v-if</li> <li>v-bind</li></ul> <h2 id="todo组件"><a href="#todo组件" class="header-anchor">#</a> Todo组件</h2> <h3 id="新建todo-vue"><a href="#新建todo-vue" class="header-anchor">#</a> 新建Todo.vue</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+    &lt;div class=&quot;page lists-show&quot;&gt;
+        &lt;!--最外层容器--&gt;
+        &lt;nav&gt;
+            &lt;!--容器上半部分--&gt;
+            &lt;div class=&quot;nav-group&quot;&gt;
+                &lt;!--移动端的菜单图标--&gt;
+                &lt;a class=&quot;nav-item&quot;&gt;
+                    &lt;span class=&quot;icon-list-unordered&quot;&gt;
+              &lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;h1 class=&quot;title-page&quot;&gt;
+                &lt;span class=&quot;title-wrapper&quot;&gt;{{todo.title}}&lt;/span&gt;
+                &lt;!-- 标题--&gt;
+                &lt;span class=&quot;count-list&quot;&gt;{{todo.count}}&lt;/span&gt;
+                &lt;!-- 数目--&gt;
+            &lt;/h1&gt;
+            &lt;div class=&quot;nav-group right&quot;&gt;
+                &lt;!-- 右边的删除，锁定图标容器--&gt;
+                &lt;div class=&quot;options-web&quot;&gt;
+                    &lt;a class=&quot; nav-item&quot;&gt;
+                        &lt;!-- 锁定图标--&gt;
+                        &lt;span class=&quot;icon-lock&quot; v-if=&quot;todo.locked&quot;&gt;&lt;/span&gt;
+                        &lt;span class=&quot;icon-unlock&quot; v-else&gt;
+                &lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;a class=&quot; nav-item&quot;&gt;
+                        &lt;!-- 删除图标--&gt;
+                        &lt;span class=&quot;icon-trash&quot;&gt;
+                &lt;/span&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+    
+            &lt;div class=&quot; form todo-new input-symbol&quot;&gt;
+                &lt;!-- 新增单个代办单项输入框,监听了回车事件，双向绑定text值,监听了disabled属性，在todo.locked为true的情况下无法编辑--&gt;
+                &lt;input type=&quot;text&quot; v-model=&quot;text&quot; placeholder='请输入' @keyup.enter=&quot;onAdd&quot; :disabled=&quot;todo.locked&quot; /&gt;
+                &lt;span class=&quot;icon-add&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/nav&gt;
+        &lt;div class=&quot;content-scrollable list-items&quot;&gt;
+            &lt;!--容器下半部分--&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default {
+        data() {
+            return {
+                todo: { //详情内容
+                    title: '星期一',
+                    count: 12,
+                    locked: false
+                },
+                items: [ //代办单项列表
+                    {
+                        checked: false,
+                        text: '新的一天',
+                        isDelete: false
+                    },
+                    {
+                        checked: false,
+                        text: '新的一天',
+                        isDelete: false
+                    },
+                    {
+                        checked: false,
+                        text: '新的一天',
+                        isDelete: false
+                    }
+                ],
+                text: '' //新增代办单项绑定的值
+            }
+        },
+        methods: {
+            onAdd() {
+                this.items.push({
+                    checked: false,
+                    text: this.text,
+                    isDelete: false
+                }); // 当用户点击回车时候 ，给items的值新增一个对象，this.text 即输入框绑定的值
+                this.text = ''; //初始化输入框的值。
+            }
+        }
+    }
+&lt;/script&gt;
+
+&lt;style lang = &quot;less&quot;&gt;
+    @import '../assets/style/nav.less';
+    @import '../assets/style/form.less';
+    @import '../assets/style/todo.less';
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br></div></div><ul><li>v-model</li> <li>v-on @</li></ul> <h3 id="修改src-components-layouts-vue"><a href="#修改src-components-layouts-vue" class="header-anchor">#</a> 修改src/components/layouts.vue</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>    &lt;section class=&quot;content-container&quot;&gt;
+      &lt;!--右边的容器--&gt;
+      &lt;todo&gt;&lt;/todo&gt;
+    &lt;/section&gt;
+
+    import Todo from './Todo'
+    export default {
+        components: { // * 注册menus组件，让其可以在template调用
+            Menus,
+            Todo
+        }
+    };
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="代办单项组件-item-vue"><a href="#代办单项组件-item-vue" class="header-anchor">#</a> 代办单项组件（Item.vue）</h2> <h3 id="新增src-components-item-vue"><a href="#新增src-components-item-vue" class="header-anchor">#</a> 新增src/components/Item.vue</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+    &lt;div class=&quot;list-item editingClass editing&quot;&gt;
+        &lt;!-- 最外层容器--&gt;
+        &lt;label class=&quot;checkbox&quot;&gt; &lt;!--自定义的多选框--&gt;
+          &lt;input type=&quot;checkbox&quot; v-model=&quot;item.checked&quot;&gt; &lt;!--item.checked--&gt;
+          &lt;span class=&quot;checkbox-custom&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;item.text&quot; placeholder='写点什么。。。'&gt;
+        &lt;!--绑定item.text--&gt;
+        &lt;a class=&quot;delete-item&quot;&gt;
+            &lt;!--删除图标--&gt;
+            &lt;span class=&quot;icon-trash&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default {
+        props: ['item'] //子组件显式的用 props 选项声明它期待获得的数据，这里申明 它想要一个叫做 ’item‘的数据。
+    };
+&lt;/script&gt;
+
+&lt;style lang=&quot;less&quot;&gt;
+    @import '../assets/style/list-items.less';
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h3 id="修改src-components-todo-vue为"><a href="#修改src-components-todo-vue为" class="header-anchor">#</a> 修改src/components/Todo.vue为</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+    &lt;div class=&quot;page lists-show&quot;&gt;
+        &lt;!--最外层容器--&gt;
+        &lt;nav&gt;
+            &lt;!--容器上半部分--&gt;
+            &lt;div class=&quot;nav-group&quot;&gt;
+                &lt;!--移动端的菜单图标--&gt;
+                &lt;a class=&quot;nav-item&quot;&gt;
+                    &lt;span class=&quot;icon-list-unordered&quot;&gt;&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;h1 class=&quot;title-page&quot;&gt;
+                &lt;span class=&quot;title-wrapper&quot;&gt;{{todo.title}}&lt;/span&gt;
+                &lt;!-- 标题--&gt;
+                &lt;span class=&quot;count-list&quot;&gt;{{todo.count}}&lt;/span&gt;
+                &lt;!-- 数目--&gt;
+            &lt;/h1&gt;
+            &lt;div class=&quot;nav-group right&quot;&gt;
+                &lt;!-- 右边的删除，锁定图标容器--&gt;
+                &lt;div class=&quot;options-web&quot;&gt;
+                    &lt;a class=&quot;nav-item&quot;&gt;
+                        &lt;!-- 锁定图标--&gt;
+                        &lt;span class=&quot;icon-lock&quot; v-if=&quot;todo.locked&quot;&gt;&lt;/span&gt;
+                        &lt;span class=&quot;icon-unlock&quot; v-else&gt;&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;a class=&quot;nav-item&quot;&gt;
+                        &lt;!-- 删除图标--&gt;
+                        &lt;span class=&quot;icon-trash&quot;&gt;&lt;/span&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+    
+            &lt;div class=&quot;form todo-new input-symbol&quot;&gt;
+                &lt;!-- 新增单个代办单项输入框,监听了回车事件，双向绑定text值,监听了disabled属性，在todo.locked为true的情况下无法编辑--&gt;
+    
+                &lt;span class=&quot;icon-add&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/nav&gt;
+        &lt;div class=&quot;content-scrollable list-items&quot;&gt;
+            &lt;!--容器下半部分--&gt;
+            &lt;div v-for=&quot;item in items&quot; v-bind:key=&quot;item.index&quot;&gt;
+                &lt;!-- 这里`v-for`会循环我们在 `data`函数 事先定义好的 ’items‘模拟数据，循环后拿到单个对象，在通过prop把数据传输给子组件 item --&gt;
+                &lt;item :item=&quot;item&quot;&gt;&lt;/item&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import Item from './item';
+    export default {
+        data() {
+            return {
+                todo: {
+                    //详情内容
+                    title: &quot;星期一&quot;,
+                    count: 12,
+                    locked: false
+                },
+                items: [
+                    //代办单项列表
+                    {
+                        checked: false,
+                        text: &quot;新的一天&quot;,
+                        isDelete: false
+                    },
+                    {
+                        checked: false,
+                        text: &quot;新的一天&quot;,
+                        isDelete: false
+                    },
+                    {
+                        checked: false,
+                        text: &quot;新的一天&quot;,
+                        isDelete: false
+                    }
+                ],
+                text: &quot;&quot; //新增代办单项绑定的值
+            };
+        },
+        methods: {
+            onAdd() {
+                this.items.push({
+                    checked: false,
+                    text: this.text,
+                    isDelete: false
+                }); // 当用户点击回车时候 ，给items的值新增一个对象，this.text 即输入框绑定的值
+                this.text = &quot;&quot;; //初始化输入框的值。
+            }
+        },
+        components: {
+            Item
+        }
+    };
+&lt;/script&gt;
+
+&lt;style lang = &quot;less&quot;&gt;
+    @import &quot;../assets/style/nav.less&quot;;
+    @import &quot;../assets/style/form.less&quot;;
+    @import &quot;../assets/style/todo.less&quot;;
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">11/25/2021, 20:42:11</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.8f481d6d.js" defer></script><script src="/assets/js/3.8bc4d7d1.js" defer></script><script src="/assets/js/1.70bb4a11.js" defer></script><script src="/assets/js/24.a33c0482.js" defer></script>
+  </body>
+</html>

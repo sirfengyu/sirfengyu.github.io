@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>五、mock与axios实战2 | fy&#39;博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/public/favicon.ico">
+    <meta name="description" content="做有意义的事，成为想成为的人">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.9b6eee0c.css" as="style"><link rel="preload" href="/assets/js/app.8f481d6d.js" as="script"><link rel="preload" href="/assets/js/3.8bc4d7d1.js" as="script"><link rel="preload" href="/assets/js/1.70bb4a11.js" as="script"><link rel="preload" href="/assets/js/25.0da31f07.js" as="script"><link rel="prefetch" href="/assets/js/10.af285c2e.js"><link rel="prefetch" href="/assets/js/11.bfa251d3.js"><link rel="prefetch" href="/assets/js/12.9c683e0a.js"><link rel="prefetch" href="/assets/js/13.538cb349.js"><link rel="prefetch" href="/assets/js/14.ce93dcf0.js"><link rel="prefetch" href="/assets/js/15.81fcfce5.js"><link rel="prefetch" href="/assets/js/16.31556b6e.js"><link rel="prefetch" href="/assets/js/17.3ff2e760.js"><link rel="prefetch" href="/assets/js/18.d5680179.js"><link rel="prefetch" href="/assets/js/19.d51de36a.js"><link rel="prefetch" href="/assets/js/20.7fc9b5b1.js"><link rel="prefetch" href="/assets/js/21.9bc8cd3a.js"><link rel="prefetch" href="/assets/js/22.6c4dde5a.js"><link rel="prefetch" href="/assets/js/23.18ca0cd8.js"><link rel="prefetch" href="/assets/js/24.a33c0482.js"><link rel="prefetch" href="/assets/js/26.402bbc67.js"><link rel="prefetch" href="/assets/js/27.01ab1d41.js"><link rel="prefetch" href="/assets/js/28.b9bb5ec1.js"><link rel="prefetch" href="/assets/js/29.47b6e026.js"><link rel="prefetch" href="/assets/js/30.2965a7de.js"><link rel="prefetch" href="/assets/js/31.8d74415f.js"><link rel="prefetch" href="/assets/js/32.0f5e55d7.js"><link rel="prefetch" href="/assets/js/33.4703ec88.js"><link rel="prefetch" href="/assets/js/34.624e29e5.js"><link rel="prefetch" href="/assets/js/35.6a785393.js"><link rel="prefetch" href="/assets/js/36.d44c9e51.js"><link rel="prefetch" href="/assets/js/37.6b1a0bab.js"><link rel="prefetch" href="/assets/js/38.9334edd5.js"><link rel="prefetch" href="/assets/js/39.5f468800.js"><link rel="prefetch" href="/assets/js/4.7eb3df7b.js"><link rel="prefetch" href="/assets/js/40.d275d19c.js"><link rel="prefetch" href="/assets/js/41.18129da0.js"><link rel="prefetch" href="/assets/js/42.ef80c024.js"><link rel="prefetch" href="/assets/js/43.bedbae01.js"><link rel="prefetch" href="/assets/js/44.7897fa30.js"><link rel="prefetch" href="/assets/js/45.b528f408.js"><link rel="prefetch" href="/assets/js/5.aeb3d35f.js"><link rel="prefetch" href="/assets/js/6.63464ea5.js"><link rel="prefetch" href="/assets/js/7.a01077db.js"><link rel="prefetch" href="/assets/js/8.9611b4b3.js"><link rel="prefetch" href="/assets/js/9.a9819b44.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9b6eee0c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>fy'博客</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Yu.Feng</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="fy'博客" class="logo"> <span class="site-name">fy'博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/读书笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  读书笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/全栈开发/" class="nav-link"><i class="iconfont undefined"></i>
+  全栈开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/最佳实践/" class="nav-link"><i class="iconfont undefined"></i>
+  最佳实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/文档小站/" class="nav-link"><i class="iconfont undefined"></i>
+  文档小站
+</a></li><li class="dropdown-item"><!----> <a href="/categories/软件测试/" class="nav-link"><i class="iconfont undefined"></i>
+  软件测试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计划/" class="nav-link"><i class="iconfont undefined"></i>
+  计划
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/head.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    Yu.Feng
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>18</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>13</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/读书笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  读书笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/全栈开发/" class="nav-link"><i class="iconfont undefined"></i>
+  全栈开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/最佳实践/" class="nav-link"><i class="iconfont undefined"></i>
+  最佳实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/文档小站/" class="nav-link"><i class="iconfont undefined"></i>
+  文档小站
+</a></li><li class="dropdown-item"><!----> <a href="/categories/软件测试/" class="nav-link"><i class="iconfont undefined"></i>
+  软件测试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计划/" class="nav-link"><i class="iconfont undefined"></i>
+  计划
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e></h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Yu.Feng</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-2d5f533b><main class="page" style="padding-right:0;"><div class="page-title" style="display:none;"><h1 class="title">五、mock与axios实战2</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>Yu.Feng</span></i> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="五、mock与axios实战2"><a href="#五、mock与axios实战2" class="header-anchor">#</a> 五、mock与axios实战2</h1> <h2 id="嵌套路由"><a href="#嵌套路由" class="header-anchor">#</a> 嵌套路由</h2> <p>src/router/index.js</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>routes: [
+    {
+      path: '/',  //访问路径
+      name: 'Layouts', // 路径名
+      component: Layouts, //访问的组件,即访问‘/’,它会加载 Layouts 组件所有的内容。
+      children: [{
+        path: '/todo/:id',
+        name: 'todo',
+        component: Todo
+      }]
+    }
+  ]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="watch"><a href="#watch" class="header-anchor">#</a> watch</h2> <p>通过 watcher 我们能监听到任何数值属性的数值更新
+src/components/Menus.vue</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>watch: {
+    'todoId' (id) {
+        this.$router.push({
+            name: 'todo',
+            params: {
+                id: id
+            }
+        });
+        //监听到用户的点击todoId的变化在跳转路由
+    }
+},
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="新增mock"><a href="#新增mock" class="header-anchor">#</a> 新增mock</h2> <p>src/mock/mock.js新增</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 获取todo单个列表
+        mock.onGet('/todo/listId').reply(config =&gt; {
+            let {
+                id
+            } = config.params;
+            // id 是传进来的值
+            // todo 是根据id和现有的Todos数据匹配，找出id相等的数据，在进行返回
+            let todo = Todos.find(todo =&gt; {
+                return id &amp;&amp; todo.id === id;
+            });
+            // todo.count (等待完成数目)等于 todo.record（代办事项列表下面未被选择的数据
+            todo.count = todo.record.filter((data) =&gt; {
+                return data.checked === false;
+            }).length;
+            return new Promise((resolve, reject) =&gt; {
+                setTimeout(() =&gt; {
+                    resolve([200, {
+                        todo: todo
+                    }]);
+                }, 200);
+            });
+        });
+        // 新增一条代办事项
+        mock.onPost('/todo/addRecord').reply(config =&gt; {
+            let {
+                id,
+                text
+            } = JSON.parse(config.data);
+            // id 是传进来的值唯一待办项的id
+            // text 用户新增输入的数据
+            Todos.some((t, index) =&gt; {
+                if (t.id === id) {
+                    t.record.push({
+                        text: text,
+                        isDelete: false,
+                        checked: false
+                    });
+                    return true;
+                }
+            });
+            return new Promise((resolve, reject) =&gt; {
+                setTimeout(() =&gt; {
+                    resolve([200]);
+                }, 200);
+            });
+        });
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><p>src/api/api.js新增</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//新增一个请求查询代办单项列表的数据的接口函数
+export const getTodo = params =&gt; {
+    return axios.get(`/todo/listId`, {
+        params: params
+    });
+};
+//新增一个请求新增代办单的接口函数
+export const addRecord = params =&gt; {
+    return axios.post(`/todo/addRecord`, params).then(res =&gt; res.data);
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="接口调用"><a href="#接口调用" class="header-anchor">#</a> 接口调用</h2> <p>src/components/Todo.vue</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div class=&quot;page lists-show&quot;&gt;
+    &lt;!-- 头部模块 --&gt;
+    &lt;nav&gt;
+      &lt;!-- 当用户浏览车窗口尺寸小于40em时候，显示手机端的菜单图标 --&gt;
+      &lt;div class=&quot;nav-group&quot;&gt;
+        &lt;a class=&quot;nav-item&quot;&gt;
+          &lt;span class=&quot;icon-list-unordered&quot;&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;!-- 显示标题和数字模块 --&gt;
+      &lt;h1 class=&quot;title-page&quot;&gt;
+        &lt;span class=&quot;title-wrapper&quot;&gt;{{todo.title}}&lt;/span&gt;  &lt;!-- title:标题 绑定标题 --&gt;
+        &lt;span class=&quot;count-list&quot;&gt;{{todo.count || 0}}&lt;/span&gt;&lt;!-- count:数量 绑定代办单项熟练--&gt;
+      &lt;/h1&gt;
+      &lt;!-- 右边显示删除图标和锁定图标的模块 --&gt;
+      &lt;div class=&quot;nav-group right&quot;&gt;
+        &lt;div class=&quot;options-web&quot;&gt;
+          &lt;a class=&quot; nav-item&quot;&gt;
+            &lt;!-- cicon-lock锁定的图标
+            icon-unlock：非锁定的图标
+            --&gt;
+            &lt;span class=&quot;icon-lock&quot; v-if=&quot;todo.locked&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon-unlock&quot; v-else&gt;
+            &lt;/span&gt;
+          &lt;/a&gt;
+          &lt;a class=&quot; nav-item&quot;&gt;
+            &lt;span class=&quot;icon-trash&quot;&gt;
+            &lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- 用户新增代办事项的input模块 --&gt;
+      &lt;div class=&quot; form todo-new input-symbol&quot;&gt;
+        &lt;!-- 绑定disabled值，当todo.locked为绑定的时候，禁止input输入 --&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;text&quot; placeholder='请输入' :disabled=&quot;todo.locked&quot; /&gt;
+        &lt;span class=&quot;icon-add&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;!-- 列表主体模块 --&gt;
+    &lt;div class=&quot;content-scrollable list-items&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;  
+export default {
+  data() {
+    return {
+      todo: {
+        title: '星期一', //标题
+        count: 12, //数量
+        locked: false //是否绑定
+      },
+      items: [  //代办单项列表
+      ],
+      text: '' //用户输入单项项绑定的输入
+    }
+  }
+}
+&lt;/script&gt;
+&lt;style lang = &quot;less&quot;&gt;
+@import '../assets/style/nav.less';
+@import '../assets/style/form.less';
+@import '../assets/style/todo.less';
+&lt;/style&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br></div></div><h3 id="修改todo的onadd逻辑"><a href="#修改todo的onadd逻辑" class="header-anchor">#</a> 修改todo的onadd逻辑</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>onAdd() {
+    //当用户输入文字，并且回车时调用次方法。
+    const ID = this.$route.params.id;
+    addRecord({
+        id: ID,
+        text: this.text
+    }).then(res =&gt; {
+        this.text = '';
+        this.init();
+        //请求成功后初始化
+    });
+},
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结：</h2> <ul><li>命名路由</li> <li>嵌套路由</li> <li>watch: {}</li> <li>created()</li></ul></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">11/25/2021, 20:42:11</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.8f481d6d.js" defer></script><script src="/assets/js/3.8bc4d7d1.js" defer></script><script src="/assets/js/1.70bb4a11.js" defer></script><script src="/assets/js/25.0da31f07.js" defer></script>
+  </body>
+</html>

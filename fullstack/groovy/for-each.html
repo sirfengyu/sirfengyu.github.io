@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>groovy for each 剖析 | fy&#39;博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/public/favicon.ico">
+    <meta name="description" content="做有意义的事，成为想成为的人">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.9b6eee0c.css" as="style"><link rel="preload" href="/assets/js/app.8f481d6d.js" as="script"><link rel="preload" href="/assets/js/3.8bc4d7d1.js" as="script"><link rel="preload" href="/assets/js/1.70bb4a11.js" as="script"><link rel="preload" href="/assets/js/23.18ca0cd8.js" as="script"><link rel="prefetch" href="/assets/js/10.af285c2e.js"><link rel="prefetch" href="/assets/js/11.bfa251d3.js"><link rel="prefetch" href="/assets/js/12.9c683e0a.js"><link rel="prefetch" href="/assets/js/13.538cb349.js"><link rel="prefetch" href="/assets/js/14.ce93dcf0.js"><link rel="prefetch" href="/assets/js/15.81fcfce5.js"><link rel="prefetch" href="/assets/js/16.31556b6e.js"><link rel="prefetch" href="/assets/js/17.3ff2e760.js"><link rel="prefetch" href="/assets/js/18.d5680179.js"><link rel="prefetch" href="/assets/js/19.d51de36a.js"><link rel="prefetch" href="/assets/js/20.7fc9b5b1.js"><link rel="prefetch" href="/assets/js/21.9bc8cd3a.js"><link rel="prefetch" href="/assets/js/22.6c4dde5a.js"><link rel="prefetch" href="/assets/js/24.a33c0482.js"><link rel="prefetch" href="/assets/js/25.0da31f07.js"><link rel="prefetch" href="/assets/js/26.402bbc67.js"><link rel="prefetch" href="/assets/js/27.01ab1d41.js"><link rel="prefetch" href="/assets/js/28.b9bb5ec1.js"><link rel="prefetch" href="/assets/js/29.47b6e026.js"><link rel="prefetch" href="/assets/js/30.2965a7de.js"><link rel="prefetch" href="/assets/js/31.8d74415f.js"><link rel="prefetch" href="/assets/js/32.0f5e55d7.js"><link rel="prefetch" href="/assets/js/33.4703ec88.js"><link rel="prefetch" href="/assets/js/34.624e29e5.js"><link rel="prefetch" href="/assets/js/35.6a785393.js"><link rel="prefetch" href="/assets/js/36.d44c9e51.js"><link rel="prefetch" href="/assets/js/37.6b1a0bab.js"><link rel="prefetch" href="/assets/js/38.9334edd5.js"><link rel="prefetch" href="/assets/js/39.5f468800.js"><link rel="prefetch" href="/assets/js/4.7eb3df7b.js"><link rel="prefetch" href="/assets/js/40.d275d19c.js"><link rel="prefetch" href="/assets/js/41.18129da0.js"><link rel="prefetch" href="/assets/js/42.ef80c024.js"><link rel="prefetch" href="/assets/js/43.bedbae01.js"><link rel="prefetch" href="/assets/js/44.7897fa30.js"><link rel="prefetch" href="/assets/js/45.b528f408.js"><link rel="prefetch" href="/assets/js/5.aeb3d35f.js"><link rel="prefetch" href="/assets/js/6.63464ea5.js"><link rel="prefetch" href="/assets/js/7.a01077db.js"><link rel="prefetch" href="/assets/js/8.9611b4b3.js"><link rel="prefetch" href="/assets/js/9.a9819b44.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9b6eee0c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>fy'博客</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Yu.Feng</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="fy'博客" class="logo"> <span class="site-name">fy'博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/读书笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  读书笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/全栈开发/" class="nav-link"><i class="iconfont undefined"></i>
+  全栈开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/最佳实践/" class="nav-link"><i class="iconfont undefined"></i>
+  最佳实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/文档小站/" class="nav-link"><i class="iconfont undefined"></i>
+  文档小站
+</a></li><li class="dropdown-item"><!----> <a href="/categories/软件测试/" class="nav-link"><i class="iconfont undefined"></i>
+  软件测试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计划/" class="nav-link"><i class="iconfont undefined"></i>
+  计划
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/head.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    Yu.Feng
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>18</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>13</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/读书笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  读书笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/全栈开发/" class="nav-link"><i class="iconfont undefined"></i>
+  全栈开发
+</a></li><li class="dropdown-item"><!----> <a href="/categories/最佳实践/" class="nav-link"><i class="iconfont undefined"></i>
+  最佳实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/文档小站/" class="nav-link"><i class="iconfont undefined"></i>
+  文档小站
+</a></li><li class="dropdown-item"><!----> <a href="/categories/软件测试/" class="nav-link"><i class="iconfont undefined"></i>
+  软件测试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计划/" class="nav-link"><i class="iconfont undefined"></i>
+  计划
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/sirfengyu" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>groovy for each 剖析</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Yu.Feng</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-2d5f533b><main class="page"><div class="page-title" style="display:none;"><h1 class="title">groovy for each 剖析</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>Yu.Feng</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2021-05-30 16:00:00</span></i> <!----> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>groovy</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="for-each-剖析"><a href="#for-each-剖析" class="header-anchor">#</a> for each 剖析</h1> <p>迭代是编程的基础。您经常会遇到需要进行逐项遍历的内容，比如 <code>List</code>、<code>File</code> 和 JDBC <code>ResultSet</code>。Java 语言几乎总是提供了某种方法帮助您逐项遍历所需的内容，但令人沮丧的是，它并没有给出一种标准方法。Groovy 的迭代方法非常实用，在这一点上，Groovy 编程与 Java 编程截然不同。通过一些代码示例，本文将介绍 Groovy 的万能的 <code>each()</code> 方法，从而将 Java 语言的那些迭代怪癖抛在脑后。</p> <h2 id="java-迭代策略"><a href="#java-迭代策略" class="header-anchor">#</a> Java 迭代策略</h2> <p>假设您有一个 Java 编程语言的 <code>java.util.List</code>。清单 1 展示了在 Java 语言中如何使用编程实现迭代：</p> <h3 id="清单-1-java-列表迭代"><a href="#清单-1-java-列表迭代" class="header-anchor">#</a> 清单 1. Java 列表迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>import java.util.*;
+ 
+public class ListTest{
+  public static void main(String[] args){
+    List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+    list.add(&quot;Java&quot;);
+    list.add(&quot;Groovy&quot;);
+    list.add(&quot;JavaScript&quot;);
+     
+    for(Iterator&lt;String&gt; i = list.iterator(); i.hasNext();){
+      String language = i.next();
+      System.out.println(&quot;I know &quot; + language);
+    }
+  }  
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>由于提供了大部分集合类都可以共享的 <code>java.lang.Iterable</code> 接口，您可以使用相同的方法遍历 <code>java.util.Set</code> 或 <code>java.util.Queue</code>。</p> <h3 id="关于本系列"><a href="#关于本系列" class="header-anchor">#</a> 关于本系列</h3> <p>Groovy 是一款运行在 Java 平台之上的现代编程语言。它能够与现有 Java 代码无缝集成，同时引入了闭包和元编程等出色的新特性。简而言之，Groovy 类似于 21 世纪的 Java 语言。</p> <p>如果要将新工具集成到开发工具箱中，最关键的是理解什么时候需要使用它以及什么时候不适合使用它。Groovy 可以变得非常强大，但前提是它被适当地应用到合适的场景中。因此，<a href="http://www.ibm.com/developerworks/cn/java/j-pg/" target="_blank" rel="noopener noreferrer"><em>实战 Groovy</em><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 系列旨在展示 Groovy 的实际使用，以及何时和如何成功应用它。</p> <p>现在，假设该语言存储在 <code>java.util.Map</code> 中。在编译时，尝试对 <code>Map</code> 获取 <code>Iterator</code> 会导致失败 —<code>Map</code> 并没有实现 <code>Iterable</code> 接口。幸运的是，可以调用 <code>map.keySet()</code> 返回一个 <code>Set</code>，然后就可以继续处理。这些小差异可能会影响您的速度，但不会妨碍您的前进。需要注意的是，<code>List</code>、<code>Set</code> 和 <code>Queue</code> 实现了 <code>Iterable</code>，但是 <code>Map</code> 没有 — 即使它们位于相同的 <code>java.util</code>包中。</p> <p>现在假设该语言存在于 <code>String</code> 数组中。数组是一种数据结构，而不是类。不能对 <code>String</code> 数组调用 <code>.iterator()</code>，因此必须使用稍微不同的迭代策略。您再一次受到阻碍，但可以使用如清单 2 所示的方法解决问题：</p> <h3 id="清单-2-java-数组迭代"><a href="#清单-2-java-数组迭代" class="header-anchor">#</a> 清单 2. Java 数组迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>public class ArrayTest{
+  public static void main(String[] args){
+    String[] list = {&quot;Java&quot;, &quot;Groovy&quot;, &quot;JavaScript&quot;};
+    
+    for(int i = 0; i &lt; list.length; i++){
+      String language = list[i];
+      System.out.println(&quot;I know &quot; + language);
+    }
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>但是等一下 — 使用 Java 5 引入的 for-each 语法怎么样（参见 <a href="https://www.ibm.com/developerworks/cn/java/j-pg04149.html#artrelatedtopics" target="_blank" rel="noopener noreferrer">参考资料<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>）？它可以处理任何实现 <code>Iterable</code> 的类和数组，如清单 3 所示：</p> <h3 id="清单-3-java-语言的-for-each-迭代"><a href="#清单-3-java-语言的-for-each-迭代" class="header-anchor">#</a> 清单 3. Java 语言的 for-each 迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>import java.util.*;
+ 
+public class MixedTest{
+  public static void main(String[] args){
+    List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+    list.add(&quot;Java&quot;);
+    list.add(&quot;Groovy&quot;);
+    list.add(&quot;JavaScript&quot;);
+     
+    for(String language: list){
+      System.out.println(&quot;I know &quot; + language);      
+    }
+ 
+    String[] list2 = {&quot;Java&quot;, &quot;Groovy&quot;, &quot;JavaScript&quot;};
+    for(String language: list2){
+      System.out.println(&quot;I know &quot; + language);      
+    }
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>因此，您可以使用相同的方法遍历数组和集合（<code>Map</code> 除外）。但是如果语言存储在 <code>java.io.File</code>，那该怎么办？如果存储在 JDBC <code>ResultSet</code>，或者存储在 XML 文档、<code>java.util.StringTokenizer</code> 中呢？面对每一种情况，必须使用一种稍有不同的迭代策略。这样做并不是有什么特殊目的 — 而是因为不同的 API 是由不同的开发人员在不同的时期开发的 — 但事实是，您必须了解 6 个 Java 迭代策略，特别是使用这些策略的特殊情况。</p> <p>Eric S. Raymond 在他的 <em>The Art of Unix Programming</em>（参见 <a href="https://www.ibm.com/developerworks/cn/java/j-pg04149.html#artrelatedtopics" target="_blank" rel="noopener noreferrer">参考资料<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>）一书中解释了 “最少意外原则”。他写道，“要设计可用的接口，最好不要设计全新的接口模型。新鲜的东西总是难以入门；会为用户带来学习的负担，因此应当尽量减少新内容。”Groovy 对迭代的态度正是采纳了 Raymond 的观点。在 Groovy 中遍历几乎任何结构时，您只需要使用 <code>each()</code> 这一种方法。</p> <h2 id="groovy-中的列表迭代"><a href="#groovy-中的列表迭代" class="header-anchor">#</a> Groovy 中的列表迭代</h2> <p>首先，我将 <a href="https://www.ibm.com/developerworks/cn/java/j-pg04149.html#listing3" target="_blank" rel="noopener noreferrer">清单 3<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 中的 <code>List</code> 重构为 Groovy。在这里，只需要直接对列表调用 <code>each()</code> 方法并传递一个闭包，而不是将 <code>List</code>转换成 <code>for</code> 循环（顺便提一句，这样做并不是特别具有面向对象的特征，不是吗）。</p> <p>创建一个名为 listTest.groovy 的文件并添加清单 4 中的代码：</p> <h3 id="清单-4-groovy-列表迭代"><a href="#清单-4-groovy-列表迭代" class="header-anchor">#</a> 清单 4. Groovy 列表迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def list = [&quot;Java&quot;, &quot;Groovy&quot;, &quot;JavaScript&quot;]
+list.each{language-&gt;
+  println language
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>清单 4 中的第一行是 Groovy 用于构建 <code>java.util.ArrayList</code> 的便捷语法。可以将 <code>println list.class</code> 添加到此脚本来验证这一点。接下来，只需对列表调用 <code>each()</code>，并在闭包体内输出 <code>language</code> 变量。在闭包的开始处使用 <code>language-&gt;</code> 语句命名 <code>language</code> 变量。如果没有提供变量名，Groovy 提供了一个默认名称 <code>it</code>。在命令行提示符中输入 <code>groovy listTest</code> 运行 listTest.groovy。</p> <p>清单 5 是经过简化的 <a href="https://www.ibm.com/developerworks/cn/java/j-pg04149.html#listing4" target="_blank" rel="noopener noreferrer">清单 4<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 代码版本：</p> <h3 id="清单-5-使用-groovy-的-it-变量的迭代"><a href="#清单-5-使用-groovy-的-it-变量的迭代" class="header-anchor">#</a> 清单 5. 使用 Groovy 的 <code>it</code> 变量的迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>// shorter, using the default it variable
+def list = [&quot;Java&quot;, &quot;Groovy&quot;, &quot;JavaScript&quot;]
+list.each{ println it }
+ 
+// shorter still, using an anonymous list
+[&quot;Java&quot;, &quot;Groovy&quot;, &quot;JavaScript&quot;].each{ println it }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>Groovy 允许您对数组和 <code>List</code> 交替使用 <code>each()</code> 方法。为了将 <code>ArrayList</code> 改为 <code>String</code> 数组，必须将 <code>as String[]</code> 添加到行末，如清单 6 所示：</p> <h3 id="清单-6-groovy-数组迭代"><a href="#清单-6-groovy-数组迭代" class="header-anchor">#</a> 清单 6. Groovy 数组迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def list = [&quot;Java&quot;, &quot;Groovy&quot;, &quot;JavaScript&quot;] as String[]
+list.each{println it}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>在 Groovy 中普遍使用 <code>each()</code> 方法，并且 getter 语法非常便捷（<code>getClass()</code> 和 <code>class</code> 是相同的调用），这使您能够编写既简洁又富有表达性的代码。例如，假设您希望利用反射显示给定类的所有公共方法。清单 7 展示了这个例子：</p> <h3 id="清单-7-groovy-反射"><a href="#清单-7-groovy-反射" class="header-anchor">#</a> 清单 7. Groovy 反射</h3> <div class="language-{groovy} line-numbers-mode"><pre class="language-text"><code>def s = &quot;Hello World&quot;
+println s
+println s.class
+s.class.methods.each{println it}
+ 
+//output:
+$ groovy reflectionTest.groovy 
+Hello World
+class java.lang.String
+public int java.lang.String.hashCode()
+public volatile int java.lang.String.compareTo(java.lang.Object)
+public int java.lang.String.compareTo(java.lang.String)
+public boolean java.lang.String.equals(java.lang.Object)
+...
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>脚本的最后一行调用 <code>getClass()</code> 方法。<code>java.lang.Class</code> 提供了一个 <code>getMethods()</code> 方法，后者返回一个数组。通过将这些操作串连起来并对 <code>Method</code> 的结果数组调用 <code>each()</code>，您只使用了一行代码就完成了大量工作。</p> <p>但是，与 Java for-each 语句不同的是，万能的 <code>each()</code> 方法并不仅限于 <code>List</code> 和数组。在 Java 语言中，故事到此结束。然而，在 Groovy 中，故事才刚刚开始。</p> <h2 id="map-迭代"><a href="#map-迭代" class="header-anchor">#</a> Map 迭代</h2> <p>从前文可以看到，在 Java 语言中，无法直接迭代 <code>Map</code>。在 Groovy 中，这完全不是问题，如清单 8 所示：</p> <h3 id="清单-8-groovy-map-迭代"><a href="#清单-8-groovy-map-迭代" class="header-anchor">#</a> 清单 8. Groovy map 迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def map = [&quot;Java&quot;:&quot;server&quot;, &quot;Groovy&quot;:&quot;server&quot;, &quot;JavaScript&quot;:&quot;web&quot;]
+map.each{ println it }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>要处理名称/值对，可以使用隐式的 <code>getKey()</code> 和 <code>getValue()</code> 方法，或在包的开头部分显式地命名变量，如清单 9 所示：</p> <h3 id="清单-9-从-map-获得键和值"><a href="#清单-9-从-map-获得键和值" class="header-anchor">#</a> 清单 9. 从 map 获得键和值</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def map = [&quot;Java&quot;:&quot;server&quot;, &quot;Groovy&quot;:&quot;server&quot;, &quot;JavaScript&quot;:&quot;web&quot;]
+map.each{ 
+  println it.key
+  println it.value 
+}
+ 
+map.each{k,v-&gt;
+  println k
+  println v
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>可以看到，迭代 <code>Map</code> 和迭代其它任何集合一样自然。</p> <p>在继续研究下一个迭代例子前，应当了解 Groovy 中有关 <code>Map</code> 的另一个语法。与在 Java 语言中调用 <code>map.get(&quot;Java&quot;)</code> 不一样，可以简化对 <code>map.Java</code> 的调用，如清单 10 所示：</p> <h3 id="清单-10-获得-map-值"><a href="#清单-10-获得-map-值" class="header-anchor">#</a> 清单 10. 获得 map 值</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def map = [&quot;Java&quot;:&quot;server&quot;, &quot;Groovy&quot;:&quot;server&quot;, &quot;JavaScript&quot;:&quot;web&quot;]
+ 
+//identical results
+println map.get(&quot;Java&quot;)
+println map.Java
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>不可否认，Groovy 针对 <code>Map</code> 的这种便捷语法非常酷，但这也是在对 <code>Map</code> 使用反射时引起一些常见问题的原因。对 <code>list.class</code>的调用将生成 <code>java.util.ArrayList</code>，而调用 <code>map.class</code> 返回 <code>null</code>。这是因为获得 map 元素的便捷方法覆盖了实际的 getter 调用。<code>Map</code> 中的元素都不具有 <code>class</code> 键，因此调用实际会返回 <code>null</code>，如清单 11 的示例所示：</p> <h3 id="清单-11-groovy-map-和-null"><a href="#清单-11-groovy-map-和-null" class="header-anchor">#</a> 清单 11. Groovy map 和 <code>null</code></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def list = [&quot;Java&quot;, &quot;Groovy&quot;, &quot;JavaScript&quot;]
+println list.class
+// java.util.ArrayList
+ 
+def map = [&quot;Java&quot;:&quot;server&quot;, &quot;Groovy&quot;:&quot;server&quot;, &quot;JavaScript&quot;:&quot;web&quot;]
+println map.class
+// null
+ 
+map.class = &quot;I am a map element&quot;
+println map.class
+// I am a map element
+ 
+println map.getClass()
+// class java.util.LinkedHashMap
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>这是 Groovy 比较罕见的打破 “最少意外原则” 的情况，但是由于从 map 获取元素要比使用反射更加常见，因此我可以接受这一例外。</p> <h2 id="string-迭代"><a href="#string-迭代" class="header-anchor">#</a> String 迭代</h2> <p>现在您已经熟悉 <code>each()</code> 方法了，它可以出现在所有相关的位置。假设您希望迭代一个 <code>String</code>，并且是逐一迭代字符，那么马上可以使用 <code>each()</code> 方法。如清单 12 所示：</p> <h3 id="清单-12-string-迭代"><a href="#清单-12-string-迭代" class="header-anchor">#</a> 清单 12. <code>String</code> 迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def name = &quot;Jane Smith&quot;
+name.each{letter-&gt;
+  println letter
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>这提供了所有的可能性，比如使用下划线替代所有空格，如清单 13 所示：</p> <h3 id="清单-13-使用下划线替代空格"><a href="#清单-13-使用下划线替代空格" class="header-anchor">#</a> 清单 13. 使用下划线替代空格</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def name = &quot;Jane Smith&quot;
+println &quot;replace spaces&quot;
+name.each{
+  if(it == &quot; &quot;){
+    print &quot;_&quot;
+  }else{
+    print it
+  }
+}
+ 
+// output
+Jane_Smith
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>当然，在替换一个单个字母时，Groovy 提供了一个更加简洁的替换方法。您可以将清单 13 中的所有代码合并为一行代码：<code>&quot;Jane Smith&quot;.replace(&quot; &quot;, &quot;_&quot;)</code>。但是对于更复杂的 <code>String</code> 操作，<code>each()</code> 方法是最佳选择。</p> <h2 id="range-迭代"><a href="#range-迭代" class="header-anchor">#</a> Range 迭代</h2> <p>Groovy 提供了原生的 <code>Range</code> 类型，可以直接迭代。使用两个点分隔的所有内容（比如 <code>1..10</code>）都是一个 <code>Range</code>。清单 14 展示了这个例子：</p> <h3 id="清单-14-range-迭代"><a href="#清单-14-range-迭代" class="header-anchor">#</a> 清单 14. Range 迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def range = 5..10
+range.each{
+  println it
+}
+ 
+//output:
+5
+6
+7
+8
+9
+10
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p><code>Range</code> 不局限于简单的 <code>Integer</code>。考虑清单 15 在的代码，其中迭代 <code>Date</code> 的 <code>Range</code>：</p> <h3 id="清单-15-date-迭代"><a href="#清单-15-date-迭代" class="header-anchor">#</a> 清单 15. <code>Date</code> 迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def today = new Date()
+def nextWeek = today + 7
+(today..nextWeek).each{
+  println it
+}
+ 
+//output:
+Thu Mar 12 04:49:35 MDT 2009
+Fri Mar 13 04:49:35 MDT 2009
+Sat Mar 14 04:49:35 MDT 2009
+Sun Mar 15 04:49:35 MDT 2009
+Mon Mar 16 04:49:35 MDT 2009
+Tue Mar 17 04:49:35 MDT 2009
+Wed Mar 18 04:49:35 MDT 2009
+Thu Mar 19 04:49:35 MDT 2009
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>可以看到，<code>each()</code> 准确地出现在您所期望的位置。Java 语言缺乏原生的 <code>Range</code> 类型，但是提供了一个类似地概念，采取 <code>enum</code>的形式。毫不奇怪，在这里 <code>each()</code> 仍然派得上用场。</p> <h2 id="enumeration-类型"><a href="#enumeration-类型" class="header-anchor">#</a> Enumeration 类型</h2> <p>Java <code>enum</code> 是按照特定顺序保存的随意的值集合。清单 16 展示了 <code>each()</code> 方法如何自然地配合 <code>enum</code>，就好象它在处理 <code>Range</code>操作符一样：</p> <h3 id="清单-16-enum-迭代"><a href="#清单-16-enum-迭代" class="header-anchor">#</a> 清单 16. <code>enum</code> 迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>enum DAY{
+  MONDAY, TUESDAY, WEDNESDAY, THURSDAY,
+    FRIDAY, SATURDAY, SUNDAY
+}
+ 
+DAY.each{
+  println it
+}
+ 
+(DAY.MONDAY..DAY.FRIDAY).each{
+  println it
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>在 Groovy 中，有些情况下，<code>each()</code> 这个名称远未能表达它的强大功能。在下面的例子中，将看到使用特定于所用上下文的方法对 <code>each()</code> 方法进行修饰。Groovy <code>eachRow()</code> 方法就是一个很好的例子。</p> <h2 id="sql-迭代"><a href="#sql-迭代" class="header-anchor">#</a> SQL 迭代</h2> <p>在处理关系数据库表时，经常会说 “我需要针对表中的每一行执行操作”。比较一下前面的例子。您很可能会说 “我需要对列表中的每一种语言执行一些操作”。根据这个道理，<code>groovy.sql.Sql</code> 对象提供了一个 <code>eachRow()</code> 方法，如清单 17 所示：</p> <h3 id="清单-17-resultset-迭代"><a href="#清单-17-resultset-迭代" class="header-anchor">#</a> 清单 17. <code>ResultSet</code> 迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>import groovy.sql.*
+ 
+def sql = Sql.newInstance(
+   &quot;jdbc:derby://localhost:1527/MyDbTest;create=true&quot;,
+   &quot;username&quot;,
+   &quot;password&quot;,
+   &quot;org.apache.derby.jdbc.ClientDriver&quot;)
+ 
+println(&quot;grab a specific field&quot;)
+sql.eachRow(&quot;select name from languages&quot;){ row -&gt;
+    println row.name
+}
+ 
+println(&quot;grab all fields&quot;)
+sql.eachRow(&quot;select * from languages&quot;){ row -&gt;
+    println(&quot;Name: ${row.name}&quot;)
+    println(&quot;Version: ${row.version}&quot;)
+    println(&quot;URL: ${row.url}\n&quot;)
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>该脚本的第一行代码实例化了一个新的 <code>Sql</code> 对象：设置 JDBC 连接字符串、用户名、密码和 JDBC 驱动器类。这时，可以调用 <code>eachRow()</code> 方法，传递 SQL <code>select</code> 语句作为一个方法参数。在闭包内部，可以引用列名（<code>name</code>、<code>version</code>、<code>url</code>），就好像实际存在 <code>getName()</code>、<code>getVersion()</code> 和 <code>getUrl()</code> 方法一样。</p> <p>这显然要比 Java 语言中的等效方法更加清晰。在 Java 中，必须创建单独的 <code>DriverManager</code>、<code>Connection</code>、<code>Statement</code> 和 <code>JDBCResultSet</code>，然后必须在嵌套的 <code>try</code>/<code>catch</code>/<code>finally</code> 块中将它们全部清除。</p> <p>对于 <code>Sql</code> 对象，您会认为 <code>each()</code> 或 <code>eachRow()</code> 都是一个合理的方法名。但是在接下来的示例中，我想您会认为 <code>each()</code> 这个名称并不能充分表达它的功能。</p> <h2 id="文件迭代"><a href="#文件迭代" class="header-anchor">#</a> 文件迭代</h2> <p>我从未想过使用原始的 Java 代码逐行遍历 <code>java.io.File</code>。当我完成了所有的嵌套的 <code>BufferedReader</code> 和 <code>FileReader</code> 后（更别提每个流程末尾的所有异常处理），我已经忘记最初的目的是什么。</p> <p>清单 18 展示了使用 Java 语言完成的整个过程：</p> <h3 id="清单-18-java-文件迭代"><a href="#清单-18-java-文件迭代" class="header-anchor">#</a> 清单 18. Java 文件迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+ 
+public class WalkFile {
+   public static void main(String[] args) {
+      BufferedReader br = null;
+      try {
+         br = new BufferedReader(new FileReader(&quot;languages.txt&quot;));
+         String line = null;
+         while((line = br.readLine()) != null) {
+            System.out.println(&quot;I know &quot; + line);
+         }
+      }
+      catch(FileNotFoundException e) {
+         e.printStackTrace();
+      }
+      catch(IOException e) {
+         e.printStackTrace();
+      }
+      finally {
+         if(br != null) {
+            try {
+               br.close();
+            }
+            catch(IOException e) {
+               e.printStackTrace();
+            }
+         }
+      }
+   }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><p>清单 19 展示了 Groovy 中的等效过程：</p> <h3 id="清单-19-groovy-文件迭代"><a href="#清单-19-groovy-文件迭代" class="header-anchor">#</a> 清单 19. Groovy 文件迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def f = new File(&quot;languages.txt&quot;)
+f.eachLine{language-&gt;
+  println &quot;I know ${language}&quot;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>这正是 Groovy 的简洁性真正擅长的方面。现在，我希望您了解为什么我将 Groovy 称为 “<a href="http://www.ibm.com/developerworks/cn/java/j-pg02179.html" target="_blank" rel="noopener noreferrer">Java 程序员的 DSL<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>”。</p> <p>注意，我在 Groovy 和 Java 语言中同时处理同一个 <code>java.io.File</code> 类。如果该文件不存在，那么 Groovy 代码将抛出和 Java 代码相同的 <code>FileNotFoundException</code> 异常。区别在于，Groovy 没有已检测的异常。在 <code>try</code>/<code>catch</code>/<code>finally</code> 块中封装 <code>eachLine()</code> 结构是我自己的爱好 — 而不是一项语言需求。对于一个简单的命令行脚本中，我欣赏 <a href="https://www.ibm.com/developerworks/cn/java/j-pg04149.html#listing19" target="_blank" rel="noopener noreferrer">清单 19<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 中的代码的简洁性。如果我在运行应用服务的同时执行相同的迭代，我不能对这些异常坐视不管。我将在与 Java 版本相同的 <code>try/catch</code> 块中封装 <code>eachLine()</code> 块。</p> <p><code>File</code> 类对 <code>each()</code> 方法进行了一些修改。其中之一就是 <code>splitEachLine(String separator, Closure closure)</code>。这意味着您不仅可以逐行遍历文件，同时还可以将它分为不同的标记。清单 20 展示了一个例子：</p> <h3 id="清单-20-分解文件的每一行"><a href="#清单-20-分解文件的每一行" class="header-anchor">#</a> 清单 20. 分解文件的每一行</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>// languages.txt
+// notice the space between the language and the version
+Java 1.5
+Groovy 1.6
+JavaScript 1.x 
+ 
+// splitTest.groovy
+def f = new File(&quot;languages.txt&quot;)
+f.splitEachLine(&quot; &quot;){words-&gt;
+  words.each{ println it }
+}
+ 
+// output
+Java
+1.5
+Groovy
+1.6
+JavaScript
+1.x
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>如果处理的是二进制文件，Groovy 还提供了一个 <code>eachByte()</code> 方法。</p> <p>当然，Java 语言中的 <code>File</code> 并不总是一个文件 — 有时是一个目录。Groovy 还提供了一些 <code>each()</code> 修改以处理子目录。</p> <h2 id="目录迭代"><a href="#目录迭代" class="header-anchor">#</a> 目录迭代</h2> <p>使用 Groovy 代替 shell 脚本（或批处理脚本）非常容易，因为您能够方便地访问文件系统。要获得当前目录的目录列表，参见清单 21：</p> <h3 id="清单-21-目录迭代"><a href="#清单-21-目录迭代" class="header-anchor">#</a> 清单 21. 目录迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def dir = new File(&quot;.&quot;)
+dir.eachFile{file-&gt;
+  println file
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><code>eachFile()</code> 方法同时返回了文件和子目录。使用 Java 语言的 <code>isFile()</code> 和 <code>isDirectory()</code> 方法，可以完成更复杂的事情。清单 22 展示了一个例子：</p> <h3 id="清单-22-分离文件和目录"><a href="#清单-22-分离文件和目录" class="header-anchor">#</a> 清单 22. 分离文件和目录</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def dir = new File(&quot;.&quot;)
+dir.eachFile{file-&gt;
+  if(file.isFile()){
+    println &quot;FILE: ${file}&quot;    
+  }else if(file.isDirectory()){
+    println &quot;DIR:  ${file}&quot;
+  }else{
+    println &quot;Uh, I'm not sure what it is...&quot;
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>由于两种 Java 方法都返回 <code>boolean</code> 值，可以在代码中添加一个 Java 三元操作符。清单 23 展示了一个例子：</p> <h3 id="清单-23-三元操作符"><a href="#清单-23-三元操作符" class="header-anchor">#</a> 清单 23. 三元操作符</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def dir = new File(&quot;.&quot;)
+dir.eachFile{file-&gt;
+  println file.isDirectory() ? &quot;DIR:  ${file}&quot; : &quot;FILE: ${file}&quot;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>如果只对目录有兴趣，那么可以使用 <code>eachDir()</code> 而不是 <code>eachFile()</code>。还提供了 <code>eachDirMatch()</code> 和 <code>eachDirRecurse()</code> 方法。</p> <p>可以看到，对 <code>File</code> 仅使用 <code>each()</code> 方法并不能提供足够的含义。典型 <code>each()</code> 方法的语义保存在 <code>File</code> 中，但是方法名更具有描述性，从而提供更多有关这个高级功能的信息。</p> <h2 id="url-迭代"><a href="#url-迭代" class="header-anchor">#</a> URL 迭代</h2> <p>理解了如何遍历 <code>File</code> 后，可以使用相同的原则遍历 HTTP 请求的响应。Groovy 为 <code>java.net.URL</code> 提供了一个方便的（和熟悉的）<code>eachLine()</code> 方法。</p> <p>例如，清单 24 将逐行遍历 ibm.com 主页的 HTML：</p> <h3 id="清单-24-url-迭代"><a href="#清单-24-url-迭代" class="header-anchor">#</a> 清单 24. URL 迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def url = new URL(&quot;http://www.ibm.com&quot;)
+url.eachLine{line-&gt;
+  println line
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>当然，如果这就是您的目的的话，Groovy 提供了一个只包含一行代码的解决办法，这主要归功于 <code>toURL()</code> 方法，它被添加到所有 <code>Strings</code>：<code>&quot;http://www.ibm.com&quot;.toURL().eachLine{ println it }</code>。</p> <p>但是，如果希望对 HTTP 响应执行一些更有用的操作，该怎么办呢？具体来讲，如果发出的请求指向一个 RESTful Web 服务，而该服务包含您要解析的 XML，该怎么做呢？<code>each()</code> 方法将在这种情况下提供帮助。</p> <h2 id="xml-迭代"><a href="#xml-迭代" class="header-anchor">#</a> XML 迭代</h2> <p>您已经了解了如何对文件和 URL 使用 <code>eachLine()</code> 方法。XML 给出了一个稍微有些不同的问题 — 与逐行遍历 XML 文档相比，您可能更希望对逐个元素进行遍历。</p> <p>例如，假设您的语言列表存储在名为 languages.xml 的文件中，如清单 25 所示：</p> <h3 id="清单-25-languages-xml-文件"><a href="#清单-25-languages-xml-文件" class="header-anchor">#</a> 清单 25. languages.xml 文件</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;langs&gt;
+  &lt;language&gt;Java&lt;/language&gt;
+  &lt;language&gt;Groovy&lt;/language&gt;
+  &lt;language&gt;JavaScript&lt;/language&gt;
+&lt;/langs&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>Groovy 提供了一个 <code>each()</code> 方法，但是需要做一些修改。如果使用名为 <code>XmlSlurper</code> 的原生 Groovy 类解析 XML，那么可以使用 <code>each()</code> 遍历元素。参见清单 26 所示的例子：</p> <h3 id="清单-26-xml-迭代"><a href="#清单-26-xml-迭代" class="header-anchor">#</a> 清单 26. XML 迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def langs = new XmlSlurper().parse(&quot;languages.xml&quot;)
+langs.language.each{
+  println it
+}
+ 
+//output
+Java
+Groovy
+JavaScript
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><code>langs.language.each</code> 语句从名为 <code>&lt;language&gt;</code> 的 <code>&lt;langs&gt;</code> 提取所有元素。如果同时拥有 <code>&lt;format&gt;</code> 和 <code>&lt;server&gt;</code> 元素，它们将不会出现在 <code>each()</code> 方法的输出中。</p> <p>如果觉得这还不够的话，那么假设这个 XML 是通过一个 RESTful Web 服务的形式获得，而不是文件系统中的文件。使用一个 URL 替换文件的路径，其余代码仍然保持不变，如清单 27 所示：</p> <h3 id="清单-27-web-服务调用的-xml-迭代"><a href="#清单-27-web-服务调用的-xml-迭代" class="header-anchor">#</a> 清单 27. Web 服务调用的 XML 迭代</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>def langs = new XmlSlurper().parse(&quot;http://somewhere.com/languages&quot;)
+langs.language.each{
+  println it
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>这真是个好方法，<code>each()</code> 方法在这里用得很好，不是吗？</p> <h2 id="结束语"><a href="#结束语" class="header-anchor">#</a> 结束语</h2> <p>在使用 <code>each()</code> 方法的整个过程中，最妙的部分在于它只需要很少的工作就可以处理大量 Groovy 内容。解了 <code>each()</code> 方法之后，Groovy 中的迭代就易如反掌了。正如 Raymond 所说，这正是关键所在。一旦了解了如何遍历 <code>List</code>，那么很快就会掌握如何遍历数组、<code>Map</code>、<code>String</code>、<code>Range</code>、<code>enum</code>、SQL <code>ResultSet</code>、<code>File</code>、目录和 <code>URL</code>，甚至是 XML 文档的元素。</p> <p>本文的最后一个示例简单提到使用 <code>XmlSlurper</code> 实现 XML 解析。在下一期文章中，我将继续讨论这个问题，并展示使用 Groovy 进行 XML 解析有多么简单！您将看到 <code>XmlParser</code> 和 <code>XmlSlurper</code> 的实际使用，并更好地了解 Groovy 为什么提供两个类似但又略有不同的类实现 XML 解析。到那时，希望您能发现 Groovy 的更多实际应用。</p> <h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <p>https://www.ibm.com/developerworks/cn/java/j-pg04149.html</p> <h2 id="留言"><a href="#留言" class="header-anchor">#</a> 留言</h2> <p><valine></valine></p></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">11/25/2021, 20:42:11</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.8f481d6d.js" defer></script><script src="/assets/js/3.8bc4d7d1.js" defer></script><script src="/assets/js/1.70bb4a11.js" defer></script><script src="/assets/js/23.18ca0cd8.js" defer></script>
+  </body>
+</html>
